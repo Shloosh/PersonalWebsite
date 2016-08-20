@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React Redux Universal Hot Example
 
 [![build status](https://img.shields.io/travis/erikras/react-redux-universal-hot-example/master.svg?style=flat-square)](https://travis-ci.org/erikras/react-redux-universal-hot-example)
@@ -256,3 +257,10 @@ If you would like to submit a pull request, please make an effort to follow the 
 Thanks for checking this out.
 
 – Erik Rasmussen, [@erikras](https://twitter.com/erikras)
+=======
+# PersonalWebsite
+Personal website for me to share my ideas
+
+Dick ass.....
+I'm fucking depressed atm. Crazy emotional week.
+>>>>>>> eec4b37da2be558593128601bdd5d3517b662792
