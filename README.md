@@ -1,4 +1,4 @@
 # Personal Website
-Personal website for me to share my ideas
+Personal website for me to share my ideas.
 
-This shit mega confusing....
+I'm thinking I want to put dream logs, blogs, personal programming projects, and other personal stuff on this site.
