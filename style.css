@@ -1,7 +1,41 @@
 body {
 	margin: 0 auto;
-	max-width: 50em;
-	font-family: Georgia, serif;
+	/*max-width: 50em;*/
+	font-family: 'Source Sans Pro', sans-serif;
 	line-height: 1.5em;
-	padding: 4em 1em;
+	/*padding: 4em 1em;*/
+}
+
+#title-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 100%;
+	position: absolute;
+
+	background: yellow;
+}
+
+#title {
+	/*
+	margin: 0;
+
+	height: 200px;
+	width: 50px;
+
+	background: red;
+	*/
+
+	margin: 0;
+	font-weight: normal;
+	line-height: 1.5em;
+
+	background: red;
+  transform: rotate(-90deg);
+
+	/*
+	position: absolute;
+	bottom: 0;
+	*/
 }
