@@ -1,41 +1,57 @@
 body {
 	margin: 0 auto;
-	/*max-width: 50em;*/
 	font-family: 'Source Sans Pro', sans-serif;
 	line-height: 1.5em;
-	/*padding: 4em 1em;*/
+	background: #333;
 }
 
+/* Title container on left hand side with my name */
 #title-container {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
 	height: 100%;
 	position: absolute;
-
-	background: yellow;
+	background: #333;
+	border-right: 3px solid #ddd;
+	transition: .5s;
+	z-index: 1;
+}
+#title-container:hover {
+	background: #ddd;
+}
+#title-container:hover > #title {
+	fill: #333;
 }
 
+/* Title text with my name */
 #title {
-	/*
-	margin: 0;
+	fill: #ddd;
+}
 
-	height: 200px;
-	width: 50px;
-
-	background: red;
-	*/
-
-	margin: 0;
-	font-weight: normal;
-	line-height: 1.5em;
+#main {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
 
 	background: red;
-  transform: rotate(-90deg);
 
-	/*
 	position: absolute;
-	bottom: 0;
-	*/
+	height: 100%;
+	right: 0;
+}
+
+#thoughts {
+}
+
+#projects {
+}
+
+#social {
+}
+
+#media {
+}
+
+.nav-container {
+	color: #ddd;
+	background: #333;
+	border: 2px solid #ddd;
 }

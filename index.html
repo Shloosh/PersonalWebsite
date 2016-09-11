@@ -2,12 +2,73 @@
 <html>
 <head>
 	<title>Brian - Home</title>
+	<!-- Import custom google font -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<!-- Import site stylesheet -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<!-- Import jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Custom javascript -->
+	<script>
+		// Wait for the dom to load
+		$(document).ready(function() {
+			$("#main").css("width", ($(document).width()*.95)-3);
+			$("#thoughts").css("flex-basis", ($(document).height()*.6)-4);
+			$("#projects").css("flex-basis", ($(document).height()*.4)-4);
+			$("#social").css("flex-basis", ($(document).height()*.4)-4);
+			$("#media").css("flex-basis", ($(document).height()*.6)-4);
+
+			// Set the title text size as a function of the width of the document
+			$("#title").css("font-size", $(document).width()/400 + "em");
+			// Grab the initial width of the title element so that we can space the
+			// letters to fit the height
+			var titleTextInitialWidth = $("#title").width();
+
+			// Fit the title to the height
+			fitTitle();
+
+			// On window resize
+			$(window).on("resize", function() {
+				// Fit the title to the height
+				fitTitle();
+			});
+
+			// ########### CUSTOM FUNCTIONS ###########
+
+			// Fit the title text to the height of the document
+			function fitTitle() {
+				// Rotate the title text so that it's vertical and place it in the
+				// middle of the title-container
+				$("#title").attr("transform", "translate(" + $(document).width()/40 + ", " + $(document).height()/2 + ") rotate(270)");
+				// Space the title letters so that they mostly fill the height
+				$("#title").attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
+				// Resize the title text as a function of the document width
+				$("#title").css("font-size", $(document).width()/400 + "em");
+			}
+		});
+	</script>
 </head>
 <body>
-	<div id="title-container">
-		<h1 id="title">Brian Schmoker</h1>
+	<!-- Title with my name on left hand side -->
+	<svg id="title-container" width="5%" height="100%">
+		<!-- Text of title -->
+		<text id="title" text-anchor="middle" dominant-baseline="central">Brian Schmoker</text>
+	</svg>
+
+	<!-- Main navigation panes -->
+	<div id="main">
+		<div id="thoughts" class="nav-container">
+			Thoughts
+		</div>
+		<div id="projects" class="nav-container">
+			Projects
+		</div>
+		<div id="social" class="nav-container">
+			Social
+		</div>
+		<div id="media" class="nav-container">
+			Media
+		</div>
 	</div>
 </body>
 </html>
