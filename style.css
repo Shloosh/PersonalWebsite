@@ -1,12 +1,13 @@
 body {
 	margin: 0 auto;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif; /* Import custom font */
 	line-height: 1.5em;
 	background: #333;
 }
 
 /* Title container on left hand side with my name */
 #title-container {
+	width: 5%;
 	height: 100%;
 	position: absolute;
 	background: #333;
@@ -21,11 +22,12 @@ body {
 	fill: #333;
 }
 
-/* Title text with my name */
+/* Title text of my name */
 #title {
 	fill: #ddd;
 }
 
+/* Main navigation pane area */
 #main {
 	display: flex;
 	flex-direction: column;
@@ -37,6 +39,8 @@ body {
 	height: 100%;
 	right: 0;
 }
+
+/* Individual navigation panes */
 
 #thoughts {
 }
@@ -50,6 +54,7 @@ body {
 #media {
 }
 
+/* Shared stylings */
 .nav-container {
 	color: #ddd;
 	background: #333;

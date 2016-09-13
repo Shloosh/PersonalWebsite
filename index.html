@@ -12,45 +12,58 @@
 	<script>
 		// Wait for the dom to load
 		$(document).ready(function() {
-			$("#main").css("width", ($(document).width()*.95)-3);
-			$("#thoughts").css("flex-basis", ($(document).height()*.6)-4);
-			$("#projects").css("flex-basis", ($(document).height()*.4)-4);
-			$("#social").css("flex-basis", ($(document).height()*.4)-4);
-			$("#media").css("flex-basis", ($(document).height()*.6)-4);
-
-			// Set the title text size as a function of the width of the document
-			$("#title").css("font-size", $(document).width()/400 + "em");
-			// Grab the initial width of the title element so that we can space the
-			// letters to fit the height
-			var titleTextInitialWidth = $("#title").width();
-
-			// Fit the title to the height
-			fitTitle();
+			// Initial component sizing
+			resizeComponents();
 
 			// On window resize
 			$(window).on("resize", function() {
-				// Fit the title to the height
-				fitTitle();
+				resizeComponents();
 			});
 
 			// ########### CUSTOM FUNCTIONS ###########
+
+			// Size the various components for the window width/height
+			function resizeComponents() {
+				// Fit the title to the height
+				fitTitle();
+				// Resize content nav panes
+				resizeContentNav();
+			}
 
 			// Fit the title text to the height of the document
 			function fitTitle() {
 				// Rotate the title text so that it's vertical and place it in the
 				// middle of the title-container
-				$("#title").attr("transform", "translate(" + $(document).width()/40 + ", " + $(document).height()/2 + ") rotate(270)");
+				$("#title").attr("transform", "translate(" + $("#title-container").width()/2 + ", " + $(document).height()/2 + ") rotate(270)");
+
+				// TODO: [5] See if the dynamic title sizing can be made cleaner
+				// Resize the title text as a function of the document width
+				var titleFontSize = $(document).width()/400;
+				$("#title").css("font-size", titleFontSize + "em");
+				// Get the approximate length of the title based on the font size
+				var titleTextInitialWidth = titleFontSize*110;
 				// Space the title letters so that they mostly fill the height
 				$("#title").attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
-				// Resize the title text as a function of the document width
-				$("#title").css("font-size", $(document).width()/400 + "em");
+			}
+
+			// Resize the main content navigation panes
+			function resizeContentNav() {
+				// Get the width of the nav container borders & padding
+				var navContainerBorderWidth = $(".nav-container").outerWidth()-$(".nav-container").width();
+				// Set the width of the main nav container area
+				$("#main").css("width", ($(document).width()-$("#title-container").outerWidth()));
+				// Set the height of the nav containers as a percentage
+				$("#thoughts").css("flex-basis", ($(document).height()*.6)-navContainerBorderWidth);
+				$("#projects").css("flex-basis", ($(document).height()*.4)-navContainerBorderWidth);
+				$("#social").css("flex-basis", ($(document).height()*.4)-navContainerBorderWidth);
+				$("#media").css("flex-basis", ($(document).height()*.6)-navContainerBorderWidth);
 			}
 		});
 	</script>
 </head>
 <body>
 	<!-- Title with my name on left hand side -->
-	<svg id="title-container" width="5%" height="100%">
+	<svg id="title-container">
 		<!-- Text of title -->
 		<text id="title" text-anchor="middle" dominant-baseline="central">Brian Schmoker</text>
 	</svg>
