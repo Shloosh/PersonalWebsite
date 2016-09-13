@@ -25,6 +25,7 @@ body {
 /* Title text of my name */
 #title {
 	fill: #ddd;
+	transition: fill .5s;
 }
 
 /* Main navigation pane area */
@@ -38,6 +39,21 @@ body {
 	position: absolute;
 	height: 100%;
 	right: 0;
+}
+
+/* Border slide-animate testing */
+#border-animate-test {
+	z-index: 100;
+	width: 0;
+	height: 2px;
+	background: red;
+	position: absolute;
+	top: -2px;
+	left: 0;
+	transition: width .5s;
+}
+#thoughts:hover > #border-animate-test {
+	width: 100%;
 }
 
 /* Individual navigation panes */
@@ -59,4 +75,38 @@ body {
 	color: #ddd;
 	background: #333;
 	border: 2px solid #ddd;
+	text-align: center;
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	/*
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	*/
+}
+
+.nav-container-title {
+	color: #ddd;
+	font-size: 2em;
+}
+
+#blog {
+	flex-basis: 100%;
+}
+#dreams {
+	flex-basis: 49%;
+}
+#stories {
+	flex-basis: 49%;
+}
+
+.nav-container-nested {
+	color: #ddd;
+	background: #333;
+	border: 2px solid #ddd;
+	text-align: center;
 }
