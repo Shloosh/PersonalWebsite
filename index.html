@@ -26,8 +26,12 @@
 			function resizeComponents() {
 				// Fit the title to the height
 				fitTitle();
+				/*
 				// Resize content nav panes
 				resizeContentNav();
+				// Resize nested nav panes
+				resizeNestedContainers();
+				*/
 			}
 
 			// Fit the title text to the height of the document
@@ -58,6 +62,15 @@
 				$("#social").css("flex-basis", ($(document).height()*.4)-navContainerBorderWidth);
 				$("#media").css("flex-basis", ($(document).height()*.6)-navContainerBorderWidth);
 			}
+
+			function resizeNestedContainers() {
+				// Get the width of the nested nav container borders & padding
+				var nestedNavContainerBorderWidth = $(".nav-container-nested").outerWidth()-$(".nav-container-nested").width();
+				//alert(nestedNavContainerBorderWidth);
+				// Set the height of the nested nav containers as a percentage
+				$("#blog").css("flex-basis", ($("#blog").parent().height()*1)-nestedNavContainerBorderWidth);
+				$("#dreams").css("flex-basis", ($("#dreams").parent().css("flex-basis").slice(0,-2)*.5)-nestedNavContainerBorderWidth); $("#stories").css("flex-basis", ($("#stories").parent().css("flex-basis").slice(0,-2)*.5)-nestedNavContainerBorderWidth);
+			}
 		});
 	</script>
 </head>
@@ -72,6 +85,7 @@
 	<div id="main">
 		<div id="thoughts" class="nav-container">
 			<div id="border-animate-test"></div>
+
 			<div id="blog" class="nav-container-nested">
 				Blog
 			</div>

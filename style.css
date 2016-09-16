@@ -5,6 +5,10 @@ body {
 	background: #333;
 }
 
+div {
+	box-sizing: border-box;
+}
+
 /* Title container on left hand side with my name */
 #title-container {
 	width: 5%;
@@ -37,6 +41,7 @@ body {
 	background: red;
 
 	position: absolute;
+	width: 95%;
 	height: 100%;
 	right: 0;
 }
@@ -59,15 +64,19 @@ body {
 /* Individual navigation panes */
 
 #thoughts {
+	flex-basis: 60%;
 }
 
 #projects {
+	flex-basis: 40%;
 }
 
 #social {
+	flex-basis: 40%;
 }
 
 #media {
+	flex-basis: 60%;
 }
 
 /* Shared stylings */
@@ -94,14 +103,18 @@ body {
 	font-size: 2em;
 }
 
+.nav-container:hover > div {
+	opacity: 1;
+}
+
 #blog {
 	flex-basis: 100%;
 }
 #dreams {
-	flex-basis: 49%;
+	flex-basis: 50%;
 }
 #stories {
-	flex-basis: 49%;
+	flex-basis: 50%;
 }
 
 .nav-container-nested {
@@ -109,4 +122,6 @@ body {
 	background: #333;
 	border: 2px solid #ddd;
 	text-align: center;
+	opacity: 0;
+	transition: opacity .3s;
 }
