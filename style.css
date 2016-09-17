@@ -1,23 +1,64 @@
+/* Recommended css groupings *//*
+.selector {
+  /* Position *//*
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+
+  /* Display & Box Model *//*
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: 10px solid #333;
+  margin: 10px;
+
+  /* Color *//*
+  background: #000;
+  color: #fff
+
+  /* Text *//*
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: right;
+
+  /* Other *//*
+  cursor: pointer;
+}
+*/
+
+/* Shared body attributes */
 body {
 	margin: 0 auto;
+
+	background: #333;
+
 	font-family: 'Source Sans Pro', sans-serif; /* Import custom font */
 	line-height: 1.5em;
-	background: #333;
 }
 
+/* Put border inside box instead of growing it */
+/* This will likely need to be made more specific in the future */
 div {
 	box-sizing: border-box;
 }
 
 /* Title container on left hand side with my name */
 #title-container {
+	position: absolute;
+	z-index: 1;
+
 	width: 5%;
 	height: 100%;
-	position: absolute;
-	background: #333;
 	border-right: 3px solid #ddd;
+
+	background: #333;
+
 	transition: .5s;
-	z-index: 1;
 }
 #title-container:hover {
 	background: #ddd;
@@ -29,42 +70,45 @@ div {
 /* Title text of my name */
 #title {
 	fill: #ddd;
+
 	transition: fill .5s;
 }
 
 /* Main navigation pane area */
 #main {
+	position: absolute;
+	right: 0;
+
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-
-	background: red;
-
-	position: absolute;
 	width: 95%;
 	height: 100%;
-	right: 0;
-}
 
-/* Border slide-animate testing */
-#border-animate-test {
-	z-index: 100;
-	width: 0;
-	height: 2px;
-	background: red;
-	position: absolute;
-	top: -2px;
-	left: 0;
-	transition: width .5s;
-}
-#thoughts:hover > #border-animate-test {
-	width: 100%;
+	background: red; /* Change or remove in the future */
 }
 
 /* Individual navigation panes */
 
 #thoughts {
 	flex-basis: 60%;
+}
+/* Border slide-animate testing */
+#border-animate-test {
+	position: absolute;
+	z-index: 100;
+	top: -2px;
+	left: 0;
+
+	width: 0;
+	height: 2px;
+
+	background: red;
+
+	transition: width .5s;
+}
+#thoughts:hover > #border-animate-test {
+	width: 100%;
 }
 
 #projects {
@@ -79,17 +123,19 @@ div {
 	flex-basis: 60%;
 }
 
-/* Shared stylings */
-.nav-container {
-	color: #ddd;
-	background: #333;
-	border: 2px solid #ddd;
-	text-align: center;
+/* Shared nav pane stylings */
+.nav-pane {
 	position: relative;
 
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	border: 2px solid #ddd;
+
+	background: #333;
+	color: #ddd;
+
+	text-align: center;
 
 	/*
 	display: flex;
@@ -97,31 +143,68 @@ div {
 	justify-content: center;
 	*/
 }
+.nav-pane-title-container {
+	position: absolute;
 
-.nav-container-title {
+	display: flex;
+  flex-direction: column;
+  justify-content: center;
+	width: 100%;
+	height: 100%;
+
+	text-align: center;
+}
+.nav-pane-title {
 	color: #ddd;
 	font-size: 2em;
 }
-
-.nav-container:hover > div {
-	opacity: 1;
+.nav-pane:hover > div {
+	opacity: .8;
 }
 
-#blog {
-	flex-basis: 100%;
-}
-#dreams {
-	flex-basis: 50%;
-}
-#stories {
-	flex-basis: 50%;
-}
+/* Nested navigation panes */
 
-.nav-container-nested {
-	color: #ddd;
-	background: #333;
+/* #thoughts */
+#blog { flex-basis: 100%; }
+#dreams { flex-basis: 50%; }
+#stories { flex-basis: 50%; }
+
+/* #projects */
+#coding { flex-basis: 100%; }
+#art { flex-basis: 100%; }
+
+/* #social */
+#chatroom { flex-basis: 50%; }
+#memes { flex-basis: 50%; }
+#contact { flex-basis: 100%; }
+
+/* #media */
+#books { flex-basis: 100%; }
+#music { flex-basis: 100%; }
+#podcasts { flex-basis: 100%; }
+
+/* Shared nested nav pane stylings */
+.nav-pane-nested {
+	z-index: 1; /* position above nav-pane */
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	border: 2px solid #ddd;
-	text-align: center;
+
+	background: #333;
+	color: #ddd;
 	opacity: 0;
+
+	font-size: 1.5em;
+	text-align: center;
+
 	transition: opacity .3s;
+	transition: .5s;
+}
+.nav-pane-nested:hover {
+	border: 2px solid: #333;
+
+	background-color: #ddd;
+	color: #333;
 }

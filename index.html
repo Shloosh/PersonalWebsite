@@ -26,12 +26,6 @@
 			function resizeComponents() {
 				// Fit the title to the height
 				fitTitle();
-				/*
-				// Resize content nav panes
-				resizeContentNav();
-				// Resize nested nav panes
-				resizeNestedContainers();
-				*/
 			}
 
 			// Fit the title text to the height of the document
@@ -49,28 +43,6 @@
 				// Space the title letters so that they mostly fill the height
 				$("#title").attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
 			}
-
-			// Resize the main content navigation panes
-			function resizeContentNav() {
-				// Get the width of the nav container borders & padding
-				var navContainerBorderWidth = $(".nav-container").outerWidth()-$(".nav-container").width();
-				// Set the width of the main nav container area
-				$("#main").css("width", ($(document).width()-$("#title-container").outerWidth()));
-				// Set the height of the nav containers as a percentage
-				$("#thoughts").css("flex-basis", ($(document).height()*.6)-navContainerBorderWidth);
-				$("#projects").css("flex-basis", ($(document).height()*.4)-navContainerBorderWidth);
-				$("#social").css("flex-basis", ($(document).height()*.4)-navContainerBorderWidth);
-				$("#media").css("flex-basis", ($(document).height()*.6)-navContainerBorderWidth);
-			}
-
-			function resizeNestedContainers() {
-				// Get the width of the nested nav container borders & padding
-				var nestedNavContainerBorderWidth = $(".nav-container-nested").outerWidth()-$(".nav-container-nested").width();
-				//alert(nestedNavContainerBorderWidth);
-				// Set the height of the nested nav containers as a percentage
-				$("#blog").css("flex-basis", ($("#blog").parent().height()*1)-nestedNavContainerBorderWidth);
-				$("#dreams").css("flex-basis", ($("#dreams").parent().css("flex-basis").slice(0,-2)*.5)-nestedNavContainerBorderWidth); $("#stories").css("flex-basis", ($("#stories").parent().css("flex-basis").slice(0,-2)*.5)-nestedNavContainerBorderWidth);
-			}
 		});
 	</script>
 </head>
@@ -83,34 +55,79 @@
 
 	<!-- Main navigation panes -->
 	<div id="main">
-		<div id="thoughts" class="nav-container">
+		<!-- Thoughts pane -->
+		<div id="thoughts" class="nav-pane">
 			<div id="border-animate-test"></div>
 
-			<div id="blog" class="nav-container-nested">
-				Blog
-			</div>
-			<div id="dreams" class="nav-container-nested">
-				Dreams
-			</div>
-			<div id="stories" class="nav-container-nested">
-				Stories
+			<!-- Pane title -->
+			<div class="nav-pane-title-container">
+				<span class="nav-pane-title">Thoughts</span>
 			</div>
 
-			<!--<span class="nav-container-title">Thoughts</span>-->
-			<!--
-			<svg width="100%" height="100%">
-				<text text-anchor="middle" dominant-baseline="central">Thoughts</text>
-			</svg>
-			-->
+			<!-- Nested panes -->
+			<div id="blog" class="nav-pane-nested">
+				Blog
+			</div>
+			<div id="dreams" class="nav-pane-nested">
+				Dreams
+			</div>
+			<div id="stories" class="nav-pane-nested">
+				Stories
+			</div>
 		</div>
-		<div id="projects" class="nav-container">
-			<span class="nav-container-title">Projects</span>
+
+		<!-- Projects pane -->
+		<div id="projects" class="nav-pane">
+			<!-- Pane title -->
+			<div class="nav-pane-title-container">
+				<span class="nav-pane-title">Projects</span>
+			</div>
+
+			<!-- Nested panes -->
+			<div id="coding" class="nav-pane-nested">
+				Coding
+			</div>
+			<div id="art" class="nav-pane-nested">
+				Art
+			</div>
 		</div>
-		<div id="social" class="nav-container">
-			<span class="nav-container-title">Social</span>
+
+		<!-- Social Pane -->
+		<div id="social" class="nav-pane">
+			<!-- Pane title -->
+			<div class="nav-pane-title-container">
+				<span class="nav-pane-title">Social</span>
+			</div>
+
+			<!-- Nested panes -->
+			<div id="chatroom" class="nav-pane-nested">
+				Chat Room
+			</div>
+			<div id="memes" class="nav-pane-nested">
+				Memes
+			</div>
+			<div id="contact" class="nav-pane-nested">
+				Contact Me
+			</div>
 		</div>
-		<div id="media" class="nav-container">
-			<span class="nav-container-title">Media</span>
+
+		<!-- Media pane -->
+		<div id="media" class="nav-pane">
+			<!-- Pane title -->
+			<div class="nav-pane-title-container">
+				<span class="nav-pane-title">Media</span>
+			</div>
+
+			<!-- Nested panes -->
+			<div id="books" class="nav-pane-nested">
+				Books
+			</div>
+			<div id="music" class="nav-pane-nested">
+				Music
+			</div>
+			<div id="podcasts" class="nav-pane-nested">
+				Podcasts
+			</div>
 		</div>
 	</div>
 </body>
