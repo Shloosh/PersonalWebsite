@@ -65,13 +65,32 @@ div {
 }
 #title-container:hover > #title {
 	fill: #333;
+	stroke: #333;
 }
 
 /* Title text of my name */
 #title {
 	fill: #ddd;
+	fill-opacity: 0;
+	stroke: #ddd;
+	stroke-width: 1px;
+	stroke-dasharray: 300;
+	stroke-dashoffset: 300;
 
-	transition: fill .5s;
+	transition: fill .5s, stroke .5s;
+	/* Animate the border and fill of my name */
+	animation: title-dash 3s ease-out forwards, title-fill 2s ease-in forwards;
+}
+/* Title animations */
+@keyframes title-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes title-fill {
+  to {
+		fill-opacity: 1;
+  }
 }
 
 /* Main navigation pane area */
@@ -136,13 +155,14 @@ div {
 	color: #ddd;
 
 	text-align: center;
-
-	/*
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	*/
 }
+/* Show the nested nav panes on hover */
+.nav-pane:hover > .nav-pane-nested {
+	opacity: .8;
+}
+
+/* Title container that lays beneath the nested nav panes */
+/* Allows for absolute positioning of nav pane title */
 .nav-pane-title-container {
 	position: absolute;
 
@@ -157,9 +177,6 @@ div {
 .nav-pane-title {
 	color: #ddd;
 	font-size: 2em;
-}
-.nav-pane:hover > div {
-	opacity: .8;
 }
 
 /* Nested navigation panes */
@@ -179,9 +196,10 @@ div {
 #contact { flex-basis: 100%; }
 
 /* #media */
-#books { flex-basis: 100%; }
-#music { flex-basis: 100%; }
-#podcasts { flex-basis: 100%; }
+/* The padding adds a vertical offset to the title text */
+#books { flex-basis: 100%; padding-top: 30%; }
+#music { flex-basis: 100%; padding-bottom: 30%; }
+#podcasts { flex-basis: 100%; padding-top: 30%; }
 
 /* Shared nested nav pane stylings */
 .nav-pane-nested {
