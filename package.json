@@ -1,0 +1,23 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "A place where I can share my thoughts and projects.",
+  "main": "app.js",
+  "scripts": {
+    "build:css": "node-sass public/sass/ -o public/css/",
+    "watch": "nodemon -e scss,js,html -x 'npm run build:css && node public/app.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shloosh/PersonalWebsite.git"
+  },
+  "author": "Brian Schmoker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shloosh/PersonalWebsite/issues"
+  },
+  "homepage": "https://github.com/Shloosh/PersonalWebsite#readme",
+  "dependencies": {
+    "node-sass": "^3.10.0"
+  }
+}

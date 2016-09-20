@@ -1,0 +1,218 @@
+/* Recommended css groupings */
+/*
+.selector {
+  /* Position */
+/*
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+
+  /* Display & Box Model */
+/*
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: 10px solid #333;
+  margin: 10px;
+
+  /* Color */
+/*
+  background: #000;
+  color: #fff
+
+  /* Text */
+/*
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: right;
+
+  /* Other */
+/*
+  cursor: pointer;
+}
+*/
+/* Shared body attributes */
+body {
+  margin: 0 auto;
+  background: #bada5F;
+  font-family: 'Source Sans Pro', sans-serif;
+  /* Import custom font */
+  line-height: 1.5em; }
+
+/* Put border inside box instead of growing it */
+/* This will likely need to be made more specific in the future */
+div {
+  box-sizing: border-box; }
+
+/* Title container on left hand side with my name */
+#title-container {
+  position: absolute;
+  z-index: 1;
+  width: 5%;
+  height: 100%;
+  border-right: 3px solid #ddd;
+  background: #333;
+  transition: .5s; }
+
+#title-container:hover {
+  background: #ddd; }
+
+#title-container:hover > #title {
+  fill: #333;
+  stroke: #333; }
+
+/* Title text of my name */
+#title {
+  fill: #ddd;
+  fill-opacity: 0;
+  stroke: #ddd;
+  stroke-width: 1px;
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transition: fill .5s, stroke .5s;
+  /* Animate the border and fill of my name */
+  animation: title-dash 3s ease-out forwards, title-fill 2s ease-in forwards; }
+
+/* Title animations */
+@keyframes title-dash {
+  to {
+    stroke-dashoffset: 0; } }
+
+@keyframes title-fill {
+  to {
+    fill-opacity: 1; } }
+
+/* Main navigation pane area */
+#main {
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 95%;
+  height: 100%; }
+
+/* Individual navigation panes */
+#thoughts {
+  flex-basis: 60%; }
+
+/* Border slide-animate testing */
+#border-animate-test {
+  position: absolute;
+  z-index: 100;
+  top: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: red;
+  transition: width .5s; }
+
+#thoughts:hover > #border-animate-test {
+  width: 100%; }
+
+#projects {
+  flex-basis: 40%; }
+
+#social {
+  flex-basis: 40%; }
+
+#media {
+  flex-basis: 60%; }
+
+/* Shared nav pane stylings */
+.nav-pane {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 2px solid #ddd;
+  background: #333;
+  color: #ddd;
+  text-align: center; }
+
+/* Show the nested nav panes on hover */
+.nav-pane:hover > .nav-pane-nested {
+  opacity: .8; }
+
+/* Title container that lays beneath the nested nav panes */
+/* Allows for absolute positioning of nav pane title */
+.nav-pane-title-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center; }
+
+.nav-pane-title {
+  color: #ddd;
+  font-size: 2em; }
+
+/* Nested navigation panes */
+/* #thoughts */
+#blog {
+  flex-basis: 100%; }
+
+#dreams {
+  flex-basis: 50%; }
+
+#stories {
+  flex-basis: 50%; }
+
+/* #projects */
+#coding {
+  flex-basis: 100%; }
+
+#art {
+  flex-basis: 100%; }
+
+/* #social */
+#chatroom {
+  flex-basis: 50%; }
+
+#memes {
+  flex-basis: 50%; }
+
+#contact {
+  flex-basis: 100%; }
+
+/* #media */
+/* The padding adds a vertical offset to the title text */
+#books {
+  flex-basis: 100%;
+  padding-top: 30%; }
+
+#music {
+  flex-basis: 100%;
+  padding-bottom: 30%; }
+
+#podcasts {
+  flex-basis: 100%;
+  padding-top: 30%; }
+
+/* Shared nested nav pane stylings */
+.nav-pane-nested {
+  z-index: 1;
+  /* position above nav-pane */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid #ddd;
+  background: #333;
+  color: #ddd;
+  opacity: 0;
+  font-size: 1.5em;
+  text-align: center;
+  transition: opacity .3s;
+  transition: .5s; }
+
+.nav-pane-nested:hover {
+  border: 2px solid #333;
+  background-color: #ddd;
+  color: #333; }
