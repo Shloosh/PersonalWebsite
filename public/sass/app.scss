@@ -31,13 +31,19 @@
 }
 */
 
-$badass: #bada5F;
+/* Pattern Miaka from colourlovers */
+/* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
+$secondary: #FCF7C5;
+$primary: #29221F;
+$tertiary: #0ABFBC;
+$emphasis: #FC354C;
+$outline: #13747D;
 
 /* Shared body attributes */
 body {
 	margin: 0 auto;
 
-	background: $badass;//#333;
+	background: $primary;
 
 	font-family: 'Source Sans Pro', sans-serif; /* Import custom font */
 	line-height: 1.5em;
@@ -56,29 +62,31 @@ div {
 
 	width: 5%;
 	height: 100%;
-	border-right: 3px solid #ddd;
+	border-right: 3px solid $outline;
 
-	background: #333;
+	background: $primary;
 
 	transition: .5s;
 }
 #title-container:hover {
-	background: #ddd;
+	background: $secondary;
 }
 #title-container:hover > #title {
-	fill: #333;
-	stroke: #333;
+	fill: $primary;
+	stroke: $primary;
 }
 
 /* Title text of my name */
 #title {
-	fill: #ddd;
+	fill: $secondary;
 	fill-opacity: 0;
-	stroke: #ddd;
+
+	stroke: $secondary;
 	stroke-width: 1px;
 	stroke-dasharray: 300;
 	stroke-dashoffset: 300;
 
+	/* Hover transitions */
 	transition: fill .5s, stroke .5s;
 	/* Animate the border and fill of my name */
 	animation: title-dash 3s ease-out forwards, title-fill 2s ease-in forwards;
@@ -93,6 +101,40 @@ div {
   to {
 		fill-opacity: 1;
   }
+}
+
+/* Border slide-animate testing */
+.border-slide {
+	position: absolute;
+	z-index: 100;
+
+	background: $emphasis;
+
+	transition: width .5s, height .5s;
+}
+.border-slide-horizontal {
+	width: 0;
+	height: 4px;
+}
+.border-slide-vertical {
+	width: 4px;
+	height: 0;
+}
+.border-slide-top {
+	top: -2px;
+	left: 0;
+}
+.border-slide-right {
+	right: -2px;
+	top: 0;
+}
+.border-slide-bottom {
+	bottom: -2px;
+	right: 0;
+}
+.border-slide-left {
+	left: -2px;
+	bottom: 0;
 }
 
 /* Main navigation pane area */
@@ -112,35 +154,26 @@ div {
 #thoughts {
 	flex-basis: 60%;
 }
-/* Border slide-animate testing */
-#border-animate-test {
-	position: absolute;
-	z-index: 100;
-	top: -2px;
-	left: 0;
-
-	width: 0;
-	height: 2px;
-
-	background: red;
-
-	transition: width .5s;
-}
-#thoughts:hover > #border-animate-test {
-	width: 100%;
-}
+#thoughts:hover > .border-slide-horizontal { width: 100%;}
+#thoughts:hover > .border-slide-vertical { height: 100%;}
 
 #projects {
 	flex-basis: 40%;
 }
+#projects:hover > .border-slide-horizontal { width: 100%;}
+#projects:hover > .border-slide-vertical { height: 100%;}
 
 #social {
 	flex-basis: 40%;
 }
+#social:hover > .border-slide-horizontal { width: 100%;}
+#social:hover > .border-slide-vertical { height: 100%;}
 
 #media {
 	flex-basis: 60%;
 }
+#media:hover > .border-slide-horizontal { width: 100%;}
+#media:hover > .border-slide-vertical { height: 100%;}
 
 /* Shared nav pane stylings */
 .nav-pane {
@@ -149,10 +182,10 @@ div {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	border: 2px solid #ddd;
+	border: 2px solid $outline;
 
-	background: #333;
-	color: #ddd;
+	background: $primary;
+	color: $secondary;
 
 	text-align: center;
 }
@@ -175,7 +208,7 @@ div {
 	text-align: center;
 }
 .nav-pane-title {
-	color: #ddd;
+	color: $tertiary;
 	font-size: 2em;
 }
 
@@ -208,10 +241,10 @@ div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	border: 2px solid #ddd;
+	border: 2px solid $outline;
 
-	background: #333;
-	color: #ddd;
+	background: $primary;
+	color: $secondary;
 	opacity: 0;
 
 	font-size: 1.5em;
@@ -221,8 +254,8 @@ div {
 	transition: .5s;
 }
 .nav-pane-nested:hover {
-	border: 2px solid #333;
+	border: 2px solid $tertiary;
 
-	background-color: #ddd;
-	color: #333;
+	background-color: $secondary;
+	color: $primary;
 }
