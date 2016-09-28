@@ -30,45 +30,73 @@
 
 			// Fit the title text to the height of the document
 			function fitTitle() {
+				$("#title-container").remove();
+
+				var titleContainer = $("<svg id='title-container' xmlns='http://www.w3.org/2000/svg'></svg>");
+				var titleSVG = $("<text id='title-svg' text-anchor='middle'dominant-baseline='central'>Brian Schmoker</text>");
+
+				$(titleContainer).css("width", "5%");
+				$(titleContainer).css("height", "100%");
+
+				$("#main").css("top", "auto");
+				$("#main").css("right", "0");
+				$("#main").css("width", "95%");
+				$("#main").css("height", "100%");
+
 				// Rotate the title text so that it's vertical and place it in the
 				// middle of the title-container
-				$("#title").attr("transform", "translate(" + $("#title-container").width()/2 + ", " + $(document).height()/2 + ") rotate(270)");
+				$(titleSVG).attr("transform", "translate(" + ($(document).width()*.05)/2 + ", " + $(document).height()/2 + ") rotate(270)");
 
 				// TODO: [5] See if the dynamic title sizing can be made cleaner
 				// Resize the title text as a function of the document width
 				var titleFontSize = $(document).width()/400;
-				$("#title").css("font-size", titleFontSize + "em");
+				$(titleSVG).css("font-size", titleFontSize + "em");
 				// Get the approximate length of the title based on the font size
 				var titleTextInitialWidth = titleFontSize*110;
 				// Space the title letters so that they mostly fill the height
-				$("#title").attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
+				$(titleSVG).attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
+
+				$(titleContainer).append(titleSVG);
+
+				var parser = new DOMParser();
+				var parsed = parser.parseFromString($(titleContainer)[0].outerHTML, "image/svg+xml");
+
+				$("body").prepend(parsed.documentElement);
 			}
 		});
 	</script>
 </head>
 <body>
-	<!-- Title with my name on left hand side -->
+	<!--
+	<!-- Title with my name on left hand side --><!--
 	<svg id="title-container">
-		<!-- Text of title -->
-		<text id="title" text-anchor="middle" dominant-baseline="central">
+		<!-- Text of title --><!--
+		<text id="title-svg" text-anchor="middle" dominant-baseline="central">
 			Brian Schmoker
 		</text>
 	</svg>
+	-->
+
+	<div id="title-container">
+		<!-- Text of title -->
+		<div id="title">
+			Brian Schmoker
+		</div>
+	</div>
 
 	<!-- Main navigation panes -->
 	<div id="main">
 		<!-- Thoughts pane -->
 		<div id="thoughts" class="nav-pane">
-			<!-- Animated border -->
-			<div class="border-slide border-slide-horizontal border-slide-top"></div>
-			<div class="border-slide border-slide-vertical border-slide-right"></div>
-			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
-			<div class="border-slide border-slide-vertical border-slide-left"></div>
-
 			<!-- Pane title -->
 			<div class="nav-pane-title-container">
 				<span class="nav-pane-title">Thoughts</span>
 			</div>
+			<!-- Animated border -->
+			<div class="border-slide border-slide-horizontal border-slide-top"></div>
+			<div class="border-slide border-slide-vertical  border-slide-right"></div>
+			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
+			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Nested panes -->
 			<div id="blog" class="nav-pane-nested">
 				Blog
@@ -83,15 +111,15 @@
 
 		<!-- Projects pane -->
 		<div id="projects" class="nav-pane">
-			<!-- Animated border -->
-			<div class="border-slide border-slide-horizontal border-slide-top"></div>
-			<div class="border-slide border-slide-vertical border-slide-right"></div>
-			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
-			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Pane title -->
 			<div class="nav-pane-title-container">
 				<span class="nav-pane-title">Projects</span>
 			</div>
+			<!-- Animated border -->
+			<div class="border-slide border-slide-horizontal border-slide-top"></div>
+			<div class="border-slide border-slide-vertical  border-slide-right"></div>
+			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
+			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Nested panes -->
 			<div id="coding" class="nav-pane-nested">
 				Coding
@@ -103,15 +131,15 @@
 
 		<!-- Social Pane -->
 		<div id="social" class="nav-pane">
-			<!-- Animated border -->
-			<div class="border-slide border-slide-horizontal border-slide-top"></div>
-			<div class="border-slide border-slide-vertical border-slide-right"></div>
-			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
-			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Pane title -->
 			<div class="nav-pane-title-container">
 				<span class="nav-pane-title">Social</span>
 			</div>
+			<!-- Animated border -->
+			<div class="border-slide border-slide-horizontal border-slide-top"></div>
+			<div class="border-slide border-slide-vertical  border-slide-right"></div>
+			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
+			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Nested panes -->
 			<div id="chatroom" class="nav-pane-nested">
 				Chat Room
@@ -126,15 +154,15 @@
 
 		<!-- Media pane -->
 		<div id="media" class="nav-pane">
-			<!-- Animated border -->
-			<div class="border-slide border-slide-horizontal border-slide-top"></div>
-			<div class="border-slide border-slide-vertical border-slide-right"></div>
-			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
-			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Pane title -->
 			<div class="nav-pane-title-container">
 				<span class="nav-pane-title">Media</span>
 			</div>
+			<!-- Animated border -->
+			<div class="border-slide border-slide-horizontal border-slide-top"></div>
+			<div class="border-slide border-slide-vertical  border-slide-right"></div>
+			<div class="border-slide border-slide-horizontal border-slide-bottom"></div>
+			<div class="border-slide border-slide-vertical border-slide-left"></div>
 			<!-- Nested panes -->
 			<div id="books" class="nav-pane-nested">
 				Books
