@@ -55,20 +55,18 @@ div {
 	box-sizing: border-box;
 }
 
-/* Title container on left hand side with my name */
+/* Default title container on top when javascript is disabled */
 #title-container {
 	position: absolute;
+	z-index: 1;
 
-	/*
-	width: 5%;
-	height: 100%;
-	border-right: 3px solid $outline;
-	*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	width: 100%;
 	height: 8%;
 	border-bottom: 3px solid $outline;
 
-	line-height: 4em;
 	text-align: center;
 
 	background: $primary;
@@ -78,12 +76,9 @@ div {
 #title-container:hover {
 	background: $secondary;
 }
-#title-container:hover > #title, #title-container:hover > #title-svg {
+#title-container:hover > #title {
 	color: $primary;
-	fill: $primary;
-	stroke: $primary;
 }
-
 /* Title text of my name */
 #title {
 	font-size: 4em;
@@ -92,6 +87,26 @@ div {
 	transition: color .5s;
 }
 
+/* Title container on left hand side with my name */
+#title-svg-container {
+	position: absolute;
+	z-index: 1;
+
+	width: 5%;
+	height: 100%;
+	border-right: 3px solid $outline;
+
+	background: $primary;
+
+	transition: .5s;
+}
+#title-svg-container:hover {
+	background: $secondary;
+}
+#title-svg-container:hover > #title-svg {
+	fill: $primary;
+	stroke: $primary;
+}
 /* Title text of my name in SVG to allow for animation & effects */
 #title-svg {
 	fill: $secondary;
@@ -137,19 +152,19 @@ div {
 	height: 0;
 }
 .border-slide-top {
-	top: -2px;
+	top: 0;
 	left: 0;
 }
 .border-slide-right {
-	right: -2px;
+	right: 0;
 	top: 0;
 }
 .border-slide-bottom {
-	bottom: -2px;
+	bottom: 0;
 	right: 0;
 }
 .border-slide-left {
-	left: -2px;
+	left: 0;
 	bottom: 0;
 }
 
@@ -209,13 +224,14 @@ div {
 }
 /* Show the nested nav panes on hover */
 .nav-pane:hover > .nav-pane-nested {
-	opacity: .8;
+	opacity: 1;
 }
 
 /* Title container that lays beneath the nested nav panes */
 /* Allows for absolute positioning of nav pane title */
 .nav-pane-title-container {
 	position: absolute;
+	z-index: 1;
 
 	display: flex;
   flex-direction: column;
@@ -224,6 +240,12 @@ div {
 	height: 100%;
 
 	text-align: center;
+
+	pointer-events: none;
+}
+.nav-pane:hover > .nav-pane-title-container > .nav-pane-title {
+	color: $emphasis;
+	text-shadow: -1px 0 $primary, 0 1px $primary, 1px 0 $primary, 0 -1px $primary;
 }
 .nav-pane-title {
 	color: $tertiary;
@@ -254,8 +276,6 @@ div {
 
 /* Shared nested nav pane stylings */
 .nav-pane-nested {
-	z-index: 1; /* position above nav-pane */
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -276,4 +296,50 @@ div {
 
 	background-color: $secondary;
 	color: $primary;
+}
+
+/* Media Queries */
+
+/* Tablets and Desktop */
+@media only screen and (min-width: 768px) {
+}
+
+/* Phones */
+@media only screen and (max-width: 767px) {
+	#title {
+		font-size: 2em;
+	}
+	#thoughts { flex-basis: 25%; }
+	#projects { flex-basis: 25%; }
+	#social { flex-basis: 25%; }
+	#media { flex-basis: 25%; }
+	.nav-pane {
+		width: 100%;
+		padding-top: 2.5em;
+		border-bottom: none;
+	}
+	.nav-pane-title-container {
+		top: 0;
+		display: block;
+		opacity: 1;
+		line-height: 2.5em;
+	}
+	#books { padding: initial; }
+	#music { padding: initial; }
+	#podcasts { padding: initial; }
+	.nav-pane-nested {
+		opacity: 1;
+	}
+}
+
+/* Portrait Phones */
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+
+}
+
+/* Short height */
+@media only screen and (max-height: 767px) {
+	#title {
+		font-size: 2em;
+	}
 }

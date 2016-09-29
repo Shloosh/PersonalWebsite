@@ -51,18 +51,16 @@ body {
 div {
   box-sizing: border-box; }
 
-/* Title container on left hand side with my name */
+/* Default title container on top when javascript is disabled */
 #title-container {
   position: absolute;
-  /*
-	width: 5%;
-	height: 100%;
-	border-right: 3px solid $outline;
-	*/
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
   height: 8%;
   border-bottom: 3px solid #13747D;
-  line-height: 4em;
   text-align: center;
   background: #29221F;
   transition: .5s; }
@@ -70,10 +68,8 @@ div {
 #title-container:hover {
   background: #FCF7C5; }
 
-#title-container:hover > #title, #title-container:hover > #title-svg {
-  color: #29221F;
-  fill: #29221F;
-  stroke: #29221F; }
+#title-container:hover > #title {
+  color: #29221F; }
 
 /* Title text of my name */
 #title {
@@ -81,6 +77,23 @@ div {
   letter-spacing: .5em;
   color: #FCF7C5;
   transition: color .5s; }
+
+/* Title container on left hand side with my name */
+#title-svg-container {
+  position: absolute;
+  z-index: 1;
+  width: 5%;
+  height: 100%;
+  border-right: 3px solid #13747D;
+  background: #29221F;
+  transition: .5s; }
+
+#title-svg-container:hover {
+  background: #FCF7C5; }
+
+#title-svg-container:hover > #title-svg {
+  fill: #29221F;
+  stroke: #29221F; }
 
 /* Title text of my name in SVG to allow for animation & effects */
 #title-svg {
@@ -120,19 +133,19 @@ div {
   height: 0; }
 
 .border-slide-top {
-  top: -2px;
+  top: 0;
   left: 0; }
 
 .border-slide-right {
-  right: -2px;
+  right: 0;
   top: 0; }
 
 .border-slide-bottom {
-  bottom: -2px;
+  bottom: 0;
   right: 0; }
 
 .border-slide-left {
-  left: -2px;
+  left: 0;
   bottom: 0; }
 
 /* Main navigation pane area */
@@ -197,18 +210,24 @@ div {
 
 /* Show the nested nav panes on hover */
 .nav-pane:hover > .nav-pane-nested {
-  opacity: .8; }
+  opacity: 1; }
 
 /* Title container that lays beneath the nested nav panes */
 /* Allows for absolute positioning of nav pane title */
 .nav-pane-title-container {
   position: absolute;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
   height: 100%;
-  text-align: center; }
+  text-align: center;
+  pointer-events: none; }
+
+.nav-pane:hover > .nav-pane-title-container > .nav-pane-title {
+  color: #FC354C;
+  text-shadow: -1px 0 #29221F, 0 1px #29221F, 1px 0 #29221F, 0 -1px #29221F; }
 
 .nav-pane-title {
   color: #0ABFBC;
@@ -258,8 +277,6 @@ div {
 
 /* Shared nested nav pane stylings */
 .nav-pane-nested {
-  z-index: 1;
-  /* position above nav-pane */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,3 +293,41 @@ div {
   border: 2px solid #0ABFBC;
   background-color: #FCF7C5;
   color: #29221F; }
+
+/* Media Queries */
+/* Tablets and Desktop */
+/* Phones */
+@media only screen and (max-width: 767px) {
+  #title {
+    font-size: 2em; }
+  #thoughts {
+    flex-basis: 25%; }
+  #projects {
+    flex-basis: 25%; }
+  #social {
+    flex-basis: 25%; }
+  #media {
+    flex-basis: 25%; }
+  .nav-pane {
+    width: 100%;
+    padding-top: 2.5em;
+    border-bottom: none; }
+  .nav-pane-title-container {
+    top: 0;
+    display: block;
+    opacity: 1;
+    line-height: 2.5em; }
+  #books {
+    padding: initial; }
+  #music {
+    padding: initial; }
+  #podcasts {
+    padding: initial; }
+  .nav-pane-nested {
+    opacity: 1; } }
+
+/* Portrait Phones */
+/* Short height */
+@media only screen and (max-height: 767px) {
+  #title {
+    font-size: 2em; } }
