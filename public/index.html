@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Brian - Home</title>
-	<meta name="viewport" content="width=device-width" />
 	<!-- Import custom google font -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<!-- Import site stylesheet -->
@@ -35,7 +34,7 @@
 			// title
 			function convertTitleToSVG() {
 				// Create the title-svg-container
-				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg'></svg>");
+				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg' onclick=\"location.href='public/about.html'\"></svg>");
 				// Create the initial svg object for the title
 				var titleSVG = $("<text id='title-svg' text-anchor='middle'dominant-baseline='central'>Brian Schmoker</text>");
 
@@ -76,12 +75,12 @@
 	</script>
 </head>
 <body>
-	<div id="title-container">
+	<a id="title-container" href="public/about.html">
 		<!-- Text of title -->
 		<div id="title">
 			Brian Schmoker
 		</div>
-	</div>
+	</a>
 
 	<!-- Main navigation panes -->
 	<div id="main">

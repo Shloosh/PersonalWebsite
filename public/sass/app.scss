@@ -68,8 +68,11 @@ div {
 	border-bottom: 3px solid $outline;
 
 	text-align: center;
+	text-decoration: none;
 
 	background: $primary;
+
+	cursor: pointer;
 
 	transition: .5s;
 }
@@ -97,6 +100,8 @@ div {
 	border-right: 3px solid $outline;
 
 	background: $primary;
+
+	cursor: pointer;
 
 	transition: .5s;
 }
@@ -224,14 +229,13 @@ div {
 }
 /* Show the nested nav panes on hover */
 .nav-pane:hover > .nav-pane-nested {
-	opacity: 1;
+	opacity: .8;
 }
 
 /* Title container that lays beneath the nested nav panes */
 /* Allows for absolute positioning of nav pane title */
 .nav-pane-title-container {
 	position: absolute;
-	z-index: 1;
 
 	display: flex;
   flex-direction: column;
@@ -242,10 +246,6 @@ div {
 	text-align: center;
 
 	pointer-events: none;
-}
-.nav-pane:hover > .nav-pane-title-container > .nav-pane-title {
-	color: $emphasis;
-	text-shadow: -1px 0 $primary, 0 1px $primary, 1px 0 $primary, 0 -1px $primary;
 }
 .nav-pane-title {
 	color: $tertiary;
@@ -288,6 +288,8 @@ div {
 	font-size: 1.5em;
 	text-align: center;
 
+	cursor: pointer;
+
 	transition: opacity .3s;
 	transition: .5s;
 }
@@ -306,22 +308,24 @@ div {
 
 /* Phones */
 @media only screen and (max-width: 767px) {
+	/* Shrink non-SVG title */
 	#title {
 		font-size: 2em;
 	}
+	/* Fit panes vertically */
 	#thoughts { flex-basis: 25%; }
 	#projects { flex-basis: 25%; }
 	#social { flex-basis: 25%; }
 	#media { flex-basis: 25%; }
+	/* Allow room above for title */
 	.nav-pane {
-		width: 100%;
 		padding-top: 2.5em;
 		border-bottom: none;
 	}
+	/* Re-position nav title to top of nav */
 	.nav-pane-title-container {
 		top: 0;
 		display: block;
-		opacity: 1;
 		line-height: 2.5em;
 	}
 	#books { padding: initial; }
