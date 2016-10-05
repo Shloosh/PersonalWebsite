@@ -31,19 +31,15 @@
 }
 */
 
-/* Pattern Miaka from colourlovers */
-/* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
-$secondary: #FCF7C5;
-$primary: #29221F;
-$tertiary: #0ABFBC;
-$emphasis: #FC354C;
-$outline: #13747D;
+/* Import our theme colors & other variables */
+@import "public/sass/variables";
 
 /* Shared body attributes */
 body {
 	margin: 0 auto;
 
 	background: $primary;
+	color: $secondary;
 
 	font-family: 'Source Sans Pro', sans-serif; /* Import custom font */
 	line-height: 1.5em;
@@ -55,295 +51,40 @@ div {
 	box-sizing: border-box;
 }
 
-/* Default title container on top when javascript is disabled */
-#title-container {
-	position: absolute;
+li {
+	list-style-type: none;
+}
+
+/* Navigation menu at top of most content pages */
+#menu {
+	position: fixed;
+	top: 0;
 	z-index: 1;
 
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	width: 100%;
-	height: 8%;
-	border-bottom: 3px solid $outline;
+	height: 4em;
 
-	text-align: center;
-	text-decoration: none;
-
-	background: $primary;
-
-	cursor: pointer;
-
-	transition: .5s;
-}
-#title-container:hover {
-	background: $secondary;
-}
-#title-container:hover > #title {
-	color: $primary;
-}
-/* Title text of my name */
-#title {
-	font-size: 4em;
-	letter-spacing: .5em;
-	color: $secondary;
-	transition: color .5s;
+	background: $tertiary-contrast;
 }
 
-/* Title container on left hand side with my name */
-#title-svg-container {
-	position: absolute;
-	z-index: 1;
-
-	width: 5%;
-	height: 100%;
-	border-right: 3px solid $outline;
-
-	background: $primary;
-
-	cursor: pointer;
-
-	transition: .5s;
-}
-#title-svg-container:hover {
-	background: $secondary;
-}
-#title-svg-container:hover > #title-svg {
-	fill: $primary;
-	stroke: $primary;
-}
-/* Title text of my name in SVG to allow for animation & effects */
-#title-svg {
-	fill: $secondary;
-	fill-opacity: 0;
-
-	stroke: $secondary;
-	stroke-width: 1px;
-	stroke-dasharray: 300;
-	stroke-dashoffset: 300;
-
-	/* Hover transitions */
-	transition: fill .5s, stroke .5s;
-	/* Animate the border and fill of my name */
-	animation: title-dash 3s ease-out forwards, title-fill 2s ease-in forwards;
-}
-/* SVG Title animations */
-@keyframes title-dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes title-fill {
-  to {
-		fill-opacity: 1;
-  }
-}
-
-/* Border slide-animate testing */
-.border-slide {
-	position: absolute;
-	z-index: 100;
-
-	background: $emphasis;
-
-	transition: width .5s ease-out, height .5s ease-out;
-}
-.border-slide-horizontal {
-	width: 0;
-	height: 4px;
-}
-.border-slide-vertical {
-	width: 4px;
-	height: 0;
-}
-.border-slide-top {
-	top: 0;
-	left: 0;
-}
-.border-slide-right {
-	right: 0;
-	top: 0;
-}
-.border-slide-bottom {
-	bottom: 0;
-	right: 0;
-}
-.border-slide-left {
-	left: 0;
-	bottom: 0;
-}
-
-/* Main navigation pane area */
+/* Main content area */
 #main {
-	position: absolute;
-	/*right: 0;*/
-	top: 8%;
-
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	width: 100%;
-	/*height: 100%;*/
-	height: 92%;
-}
-
-/* Individual navigation panes */
-
-#thoughts {
-	flex-basis: 60%;
-}
-#thoughts:hover > .border-slide-horizontal { width: 100%;}
-#thoughts:hover > .border-slide-vertical { height: 100%;}
-
-#projects {
-	flex-basis: 40%;
-}
-#projects:hover > .border-slide-horizontal { width: 100%;}
-#projects:hover > .border-slide-vertical { height: 100%;}
-
-#social {
-	flex-basis: 40%;
-}
-#social:hover > .border-slide-horizontal { width: 100%;}
-#social:hover > .border-slide-vertical { height: 100%;}
-
-#media {
-	flex-basis: 60%;
-}
-#media:hover > .border-slide-horizontal { width: 100%;}
-#media:hover > .border-slide-vertical { height: 100%;}
-
-/* Shared nav pane stylings */
-.nav-pane {
 	position: relative;
 
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	border: 2px solid $outline;
-
-	background: $primary;
-	color: $secondary;
-
-	text-align: center;
-}
-/* Show the nested nav panes on hover */
-.nav-pane:hover > .nav-pane-nested {
-	opacity: .8;
-}
-
-/* Title container that lays beneath the nested nav panes */
-/* Allows for absolute positioning of nav pane title */
-.nav-pane-title-container {
-	position: absolute;
-
-	display: flex;
-  flex-direction: column;
-  justify-content: center;
 	width: 100%;
-	height: 100%;
+	height: 40em;
+	margin-top: 4em;
+}
+
+#footer {
+	position: relative;
+
+	width: 100%;
+	padding: 1em;
+
+	background: $primary-contrast;
+	/* Creates effect of footer extending to bottom of page */
+	box-shadow: 0px 10000px 0px 10000px $primary-contrast;
 
 	text-align: center;
-
-	pointer-events: none;
-}
-.nav-pane-title {
-	color: $tertiary;
-	font-size: 2em;
-}
-
-/* Nested navigation panes */
-
-/* #thoughts */
-#blog { flex-basis: 100%; }
-#dreams { flex-basis: 50%; }
-#stories { flex-basis: 50%; }
-
-/* #projects */
-#coding { flex-basis: 100%; }
-#art { flex-basis: 100%; }
-
-/* #social */
-#chatroom { flex-basis: 50%; }
-#memes { flex-basis: 50%; }
-#contact { flex-basis: 100%; }
-
-/* #media */
-/* The padding adds a vertical offset to the title text */
-#books { flex-basis: 100%; padding-top: 30%; }
-#music { flex-basis: 100%; padding-bottom: 30%; }
-#podcasts { flex-basis: 100%; padding-top: 30%; }
-
-/* Shared nested nav pane stylings */
-.nav-pane-nested {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	border: 2px solid $outline;
-
-	background: $primary;
-	color: $secondary;
-	opacity: 0;
-
-	font-size: 1.5em;
-	text-align: center;
-
-	cursor: pointer;
-
-	transition: opacity .3s;
-	transition: .5s;
-}
-.nav-pane-nested:hover {
-	border: 2px solid $tertiary;
-
-	background-color: $secondary;
-	color: $primary;
-}
-
-/* Media Queries */
-
-/* Tablets and Desktop */
-@media only screen and (min-width: 768px) {
-}
-
-/* Phones */
-@media only screen and (max-width: 767px) {
-	/* Shrink non-SVG title */
-	#title {
-		font-size: 2em;
-	}
-	/* Fit panes vertically */
-	#thoughts { flex-basis: 25%; }
-	#projects { flex-basis: 25%; }
-	#social { flex-basis: 25%; }
-	#media { flex-basis: 25%; }
-	/* Allow room above for title */
-	.nav-pane {
-		padding-top: 2.5em;
-		border-bottom: none;
-	}
-	/* Re-position nav title to top of nav */
-	.nav-pane-title-container {
-		top: 0;
-		display: block;
-		line-height: 2.5em;
-	}
-	#books { padding: initial; }
-	#music { padding: initial; }
-	#podcasts { padding: initial; }
-	.nav-pane-nested {
-		opacity: 1;
-	}
-}
-
-/* Portrait Phones */
-@media only screen and (max-width: 767px) and (orientation: portrait) {
-
-}
-
-/* Short height */
-@media only screen and (max-height: 767px) {
-	#title {
-		font-size: 2em;
-	}
 }

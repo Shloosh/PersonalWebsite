@@ -5,15 +5,23 @@
 	<!-- Import custom google font -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<!-- Import site stylesheet -->
-	<link rel="stylesheet" type="text/css" href="public/css/app.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/app.css">
+	<!-- Import local stylesheet -->
+	<link rel="stylesheet" type="text/css" href="/public/css/home.css">
 	<!-- Import jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- Custom javascript -->
 	<script>
 		// Wait for the dom to load
 		$(document).ready(function() {
+			// Cache DOM elements that are accessed multiple times
+			var mainNav = $("#main-nav"),
+					titleSVG; // Assigned at later point
+
 			// Javascript is enabled. Conver static title to animated one.
 			convertTitleToSVG();
+			// Cache title svg element now that it has been created
+			titleSVG = $("#title-svg");
 			// Initial component sizing
 			resizeComponents();
 
@@ -36,16 +44,16 @@
 				// Create the title-svg-container
 				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg' onclick=\"location.href='public/about.html'\"></svg>");
 				// Create the initial svg object for the title
-				var titleSVG = $("<text id='title-svg' text-anchor='middle'dominant-baseline='central'>Brian Schmoker</text>");
+				titleSVG = $("<text id='title-svg' text-anchor='middle'dominant-baseline='central'>Brian Schmoker</text>");
 
 				// Remove the original title-container. We no longer need it.
 				$("#title-container").remove();
 				// Transform the main navigation panes to accompany the repositioning of
 				// the title
-				$("#main").css("top", "auto");
-				$("#main").css("right", "0");
-				$("#main").css("width", "95%");
-				$("#main").css("height", "100%");
+				mainNav.css("top", "auto");
+				mainNav.css("right", "0");
+				mainNav.css("width", "95%");
+				mainNav.css("height", "100%");
 
 				// Append the title to its container to create one dom element
 				$(titleContainer).append(titleSVG);
@@ -60,16 +68,16 @@
 			function fitTitle() {
 				// Rotate the title text so that it's vertical and place it in the
 				// middle of the title-svg-container
-				$("#title-svg").attr("transform", "translate(" + ($(document).width()*.05)/2 + ", " + $(document).height()/2 + ") rotate(270)");
+				titleSVG.attr("transform", "translate(" + ($(document).width()*.05)/2 + ", " + $(document).height()/2 + ") rotate(270)");
 
 				// TODO: [5] See if the dynamic title sizing can be made cleaner
 				// Resize the title text as a function of the document width
 				var titleFontSize = $(document).width()/400;
-				$("#title-svg").css("font-size", titleFontSize + "em");
+				titleSVG.css("font-size", titleFontSize + "em");
 				// Get the approximate length of the title based on the font size
 				var titleTextInitialWidth = titleFontSize*110;
 				// Space the title letters so that they mostly fill the height
-				$("#title-svg").attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
+				titleSVG.attr("letter-spacing", ($(document).height()-titleTextInitialWidth)/15);
 			}
 		});
 	</script>
@@ -83,7 +91,7 @@
 	</a>
 
 	<!-- Main navigation panes -->
-	<div id="main">
+	<div id="main-nav">
 		<!-- Thoughts pane -->
 		<div id="thoughts" class="nav-pane">
 			<!-- Pane title -->

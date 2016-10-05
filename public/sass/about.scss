@@ -1,0 +1,16 @@
+/* Import our theme colors & other variables */
+@import "public/sass/variables";
+
+#content-side {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  border-right: 2px solid $outline;
+}
+
+#content-center {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  vertical-align: top;
+}
