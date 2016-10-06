@@ -1,16 +1,23 @@
 /* Import our theme colors & other variables */
 @import "public/sass/variables";
 
-#content-side {
-  display: inline-block;
+#content-side-container {
+  float: left;
   width: 30%;
   height: 100%;
+}
+
+#content-side {
+  width: 100%;
+  height: 80%;
+  margin: 20% 0;
   border-right: 2px solid $outline;
 }
 
 #content-center {
-  display: inline-block;
+  float: left;
   width: 70%;
   height: 100%;
+  padding: 2em 4em;
   vertical-align: top;
 }
