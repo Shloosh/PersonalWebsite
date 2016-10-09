@@ -72,6 +72,24 @@ li {
 	background: $tertiary-contrast;
 }
 
+#menu-items {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.menu-item {
+	padding: .5em 1em;
+	color: $secondary;
+	font-size: 1.5em;
+	text-decoration: none;
+}
+
 #container {
 	position: absolute;
 	min-height: 100%;

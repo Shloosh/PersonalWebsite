@@ -42,7 +42,7 @@
 			// title
 			function convertTitleToSVG() {
 				// Create the title-svg-container
-				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg' onclick=\"location.href='public/about.html'\"></svg>");
+				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg' onclick=\"location.href='/public/about.html'\"></svg>");
 				// Create the initial svg object for the title
 				titleSVG = $("<text id='title-svg' text-anchor='middle'dominant-baseline='central'>Brian Schmoker</text>");
 
@@ -83,7 +83,7 @@
 	</script>
 </head>
 <body>
-	<a id="title-container" href="public/about.html">
+	<a id="title-container" href="/public/about.html">
 		<!-- Text of title -->
 		<div id="title">
 			Brian Schmoker
