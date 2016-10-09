@@ -3,21 +3,25 @@
 
 #content-side-container {
   float: left;
-  width: 30%;
-  height: 100%;
+  padding: 5% 0 5% 10%;
 }
 
 #content-side {
-  width: 100%;
-  height: 80%;
-  margin: 20% 0;
+  width: 20em;
+  padding: 10%;
   border-right: 2px solid $outline;
+}
+
+#pic-of-me {
+  width: 100%;
+}
+
+#content-side-text {
+  text-align: center;
 }
 
 #content-center {
   float: left;
-  width: 70%;
-  height: 100%;
   padding: 2em 4em;
   vertical-align: top;
 }
