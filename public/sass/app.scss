@@ -68,6 +68,7 @@ li {
 
 	width: 100%;
 	height: 4em;
+	border-bottom: 2px solid $outline;
 
 	background: $tertiary-contrast;
 }
@@ -88,6 +89,30 @@ li {
 	color: $secondary;
 	font-size: 1.5em;
 	text-decoration: none;
+}
+.menu-item:hover .underline-slide {
+	width: 100%;
+}
+
+.menu-item-text {
+	position: relative;
+}
+
+.underline-slide {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	width: 0;
+	height: 2px;
+
+	background: $emphasis;
+
+	transition: width .3s;
+}
+
+#home-button {
+	margin-right: 2em;
 }
 
 #container {
