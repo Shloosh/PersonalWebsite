@@ -90,6 +90,9 @@ li {
 .menu-item:hover .underline-slide {
   width: 100%; }
 
+.menu-item:hover .dropdown-content {
+  display: block; }
+
 .menu-item-text {
   position: relative; }
 
@@ -101,6 +104,11 @@ li {
   height: 2px;
   background: #FC354C;
   transition: width .3s; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%; }
 
 #home-button {
   margin-right: 2em; }

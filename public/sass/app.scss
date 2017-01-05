@@ -90,8 +90,13 @@ li {
 	font-size: 1.5em;
 	text-decoration: none;
 }
-.menu-item:hover .underline-slide {
-	width: 100%;
+.menu-item:hover {
+	.underline-slide {
+		width: 100%;
+	}
+	.dropdown-content {
+		display: block;
+	}
 }
 
 .menu-item-text {
@@ -109,6 +114,12 @@ li {
 	background: $emphasis;
 
 	transition: width .3s;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
 }
 
 #home-button {
