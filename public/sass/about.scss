@@ -21,8 +21,28 @@
 }
 
 #content-center {
-  width: 40em;
-  float: left;
+  overflow: hidden;
   padding: 2em 4em;
+  max-width: 55%;
   vertical-align: top;
+}
+
+/* Media Queries */
+
+/* Phones */
+@media only screen and (max-width: 767px) {
+  #content-side-container {
+    padding: 0;
+    text-align: center;
+  }
+  #content-side {
+    width: 100%;
+    padding: 10% 20% 0 20%;
+    border-right: 2px solid $outline;
+  }
+
+	#content-center {
+    display: inline-block;
+    max-width: 100%;
+  }
 }
