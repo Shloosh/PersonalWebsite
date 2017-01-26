@@ -83,7 +83,7 @@ li {
   padding: 0; }
 
 .menu-item {
-  padding: .5em 1em;
+  padding: .5em .75em;
   color: #FCF7C5;
   font-size: 1.5em;
   text-decoration: none; }
