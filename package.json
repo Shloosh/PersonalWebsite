@@ -4,9 +4,9 @@
   "description": "A place where I can share my thoughts and projects.",
   "main": "app.js",
   "scripts": {
-    "build:sass": "node-sass src/sass/ -o src/css/",
-    "build:pug": "pug -D src/pug/ -o src/",
-    "watch": "nodemon -e scss,js,pug -x 'npm run build:sass && npm run build:pug && node src/app.js'"
+    "build:sass": "cd src/ && node-sass sass/ -o css/",
+    "build:pug": "cd src/ && pug -D pug/ -o ./",
+    "watch": "nodemon -e scss,js,pug -x 'npm run build:sass && npm run build:pug && node app.js'"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Shloosh/PersonalWebsite#readme",
   "dependencies": {
+    "express": "^4.14.0",
     "node-sass": "^3.10.0",
     "pug-cli": "^1.0.0-alpha6"
   }

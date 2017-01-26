@@ -5,9 +5,9 @@
 	<!-- Import custom google font -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	<!-- Import site stylesheet -->
-	<link rel="stylesheet" type="text/css" href="/src/css/app.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
 	<!-- Import local stylesheet -->
-	<link rel="stylesheet" type="text/css" href="/src/css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
 	<!-- Import jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- Custom javascript -->
@@ -42,7 +42,7 @@
 			// title
 			function convertTitleToSVG() {
 				// Create the title-svg-container
-				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg' onclick=\"location.href='/src/about.html'\"></svg>");
+				var titleContainer = $("<svg id='title-svg-container' xmlns='http://www.w3.org/2000/svg' onclick=\"location.href='about.html'\"></svg>");
 				// Create the initial svg object for the title
 				titleSVG = $("<text id='title-svg' text-anchor='middle'dominant-baseline='central'>Brian Schmoker</text>");
 
@@ -83,7 +83,7 @@
 	</script>
 </head>
 <body>
-	<a id="title-container" href="/src/about.html">
+	<a id="title-container" href="/about.html">
 		<!-- Text of title -->
 		<div id="title">
 			Brian Schmoker
