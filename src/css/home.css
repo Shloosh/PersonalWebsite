@@ -132,17 +132,8 @@
 #projects:hover > .border-slide-vertical {
   height: 100%; }
 
-#social {
-  flex-basis: 40%; }
-
-#social:hover > .border-slide-horizontal {
-  width: 100%; }
-
-#social:hover > .border-slide-vertical {
-  height: 100%; }
-
 #media {
-  flex-basis: 60%; }
+  flex-basis: 100%; }
 
 #media:hover > .border-slide-horizontal {
   width: 100%; }
@@ -178,18 +169,18 @@
   pointer-events: none; }
 
 .nav-pane-title {
-  color: #0ABFBC;
+  color: #FCF7C5;
   font-size: 2em; }
 
 /* Nested navigation panes */
 /* #thoughts */
-#blog {
+#programming {
   flex-basis: 100%; }
 
-#dreams {
+#finance {
   flex-basis: 50%; }
 
-#stories {
+#personal-development {
   flex-basis: 50%; }
 
 /* #projects */
@@ -197,16 +188,6 @@
   flex-basis: 100%; }
 
 #art {
-  flex-basis: 100%; }
-
-/* #social */
-#chatroom {
-  flex-basis: 50%; }
-
-#memes {
-  flex-basis: 50%; }
-
-#contact {
   flex-basis: 100%; }
 
 /* #media */
@@ -252,10 +233,8 @@
     font-size: 2em; }
   /* Fit panes vertically */
   #thoughts {
-    flex-basis: 25%; }
+    flex-basis: 50%; }
   #projects {
-    flex-basis: 25%; }
-  #social {
     flex-basis: 25%; }
   #media {
     flex-basis: 25%; }

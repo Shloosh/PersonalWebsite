@@ -147,14 +147,8 @@
 #projects:hover > .border-slide-horizontal { width: 100%;}
 #projects:hover > .border-slide-vertical { height: 100%;}
 
-#social {
-	flex-basis: 40%;
-}
-#social:hover > .border-slide-horizontal { width: 100%;}
-#social:hover > .border-slide-vertical { height: 100%;}
-
 #media {
-	flex-basis: 60%;
+	flex-basis: 100%;
 }
 #media:hover > .border-slide-horizontal { width: 100%;}
 #media:hover > .border-slide-vertical { height: 100%;}
@@ -194,25 +188,20 @@
 	pointer-events: none;
 }
 .nav-pane-title {
-	color: $tertiary;
+	color: $secondary;
 	font-size: 2em;
 }
 
 /* Nested navigation panes */
 
 /* #thoughts */
-#blog { flex-basis: 100%; }
-#dreams { flex-basis: 50%; }
-#stories { flex-basis: 50%; }
+#programming { flex-basis: 100%; }
+#finance { flex-basis: 50%; }
+#personal-development { flex-basis: 50%; }
 
 /* #projects */
 #coding { flex-basis: 100%; }
 #art { flex-basis: 100%; }
-
-/* #social */
-#chatroom { flex-basis: 50%; }
-#memes { flex-basis: 50%; }
-#contact { flex-basis: 100%; }
 
 /* #media */
 /* The padding adds a vertical offset to the title text */
@@ -259,9 +248,8 @@
 		font-size: 2em;
 	}
 	/* Fit panes vertically */
-	#thoughts { flex-basis: 25%; }
+	#thoughts { flex-basis: 50%; }
 	#projects { flex-basis: 25%; }
-	#social { flex-basis: 25%; }
 	#media { flex-basis: 25%; }
 	/* Allow room above for title */
 	.nav-pane {
