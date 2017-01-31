@@ -1,6 +1,9 @@
 /* Import our theme colors & other variables */
 /* Pattern Miaka from colourlovers */
 /* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
+h1 {
+  margin-top: 1.25em; }
+
 #content-side-container {
   float: left;
   padding: 5% 0 5% 10%; }
@@ -19,8 +22,14 @@
 #content-center {
   overflow: hidden;
   padding: 2em 4em;
-  max-width: 55%;
+  max-width: 900px;
   vertical-align: top; }
+
+.email {
+  display: inline-block;
+  margin-top: .25em;
+  color: #FC354C;
+  text-decoration: none; }
 
 /* Media Queries */
 /* Phones */
