@@ -5,37 +5,9 @@ head
   link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
   link(rel='stylesheet', type='text/css', href='css/app.css')
   link(rel='stylesheet', type='text/css', href='css/about.css')
+  include templates.pug
 body
-  div#menu
-    div#menu-items
-      div
-        a#home-button.menu-item(href='home')
-          span.menu-item-text Home
-            div.underline-slide
-          div.dropdown-content
-            a(href='#') Link 1
-            a(href='#') Link 2
-            a(href='#') Link 3
-      div
-        a.menu-item(href='#')
-          span.menu-item-text Thoughts
-            div.underline-slide
-      div
-        a.menu-item(href='#')
-          span.menu-item-text Projects
-            div.underline-slide
-      //div
-        a.menu-item(href='#')
-          span.menu-item-text Social
-            div.underline-slide
-      div
-        a.menu-item(href='#')
-          span.menu-item-text Media
-            div.underline-slide
-      div
-        a.menu-item(href='#')
-          span.menu-item-text About
-            div.underline-slide
+  +menu("about")
   div#container
     div#main
       div#content-side-container
@@ -45,16 +17,10 @@ body
       div#content-center
         h1 About Me
         p If you somehow bypassed the home screen, my name is Brian Schmoker.
-        p I'm a pretty huge nerd and I spend most of my time on the computer, reading, or playing video games with friends. I'm always looking for ways to learn and improve, even at the cost of my own sanity.
+        p I'm a pretty huge nerd and I spend most of my time on the computer, reading, or with friends. I'm always looking for ways to learn and improve, even at the cost of my own sanity.
         p As my day job, I work doing full-stack web development in Asp.net MVC. At night, I work on side projects. One of my larger goals at the moment is to create a source of income outside my job. I am of the opinion that everyone should strive to have multiple streams of income, so as to reduce dependency on a single one.
         h1 Contact
         p The best way to get ahold of me is through email:
           br
           a.email(href='mailto:me@brianschmoker.com') me@brianschmoker.com
-    div#footer
-      ul
-        li Home
-        li About
-        li Thoughts
-        li Projects
-        li Media
+    +footer

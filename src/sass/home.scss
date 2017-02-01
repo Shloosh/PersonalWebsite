@@ -137,6 +137,7 @@
 
 #thoughts {
 	flex-basis: 60%;
+	text-decoration: none;
 }
 #thoughts:hover > .border-slide-horizontal { width: 100%;}
 #thoughts:hover > .border-slide-vertical { height: 100%;}
@@ -160,12 +161,14 @@
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	box-sizing: border-box;
 	border: 2px solid $outline;
 
 	background: $primary;
 	color: $secondary;
 
 	text-align: center;
+	text-decoration: none;
 }
 /* Show the nested nav panes on hover */
 .nav-pane:hover > .nav-pane-nested {

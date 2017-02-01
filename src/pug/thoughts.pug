@@ -1,0 +1,15 @@
+doctype html
+html
+head
+  title Brian - Thoughts
+  link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
+  link(rel='stylesheet', type='text/css', href='css/app.css')
+  link(rel='stylesheet', type='text/css', href='css/thoughts.css')
+  include templates.pug
+body
+  div#container
+    div#main
+      +menu("thoughts")
+      p Some test content
+
+    +footer

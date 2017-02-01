@@ -115,7 +115,8 @@
 
 /* Individual navigation panes */
 #thoughts {
-  flex-basis: 60%; }
+  flex-basis: 60%;
+  text-decoration: none; }
 
 #thoughts:hover > .border-slide-horizontal {
   width: 100%; }
@@ -147,10 +148,12 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  box-sizing: border-box;
   border: 2px solid #13747D;
   background: #29221F;
   color: #FCF7C5;
-  text-align: center; }
+  text-align: center;
+  text-decoration: none; }
 
 /* Show the nested nav panes on hover */
 .nav-pane:hover > .nav-pane-nested {
