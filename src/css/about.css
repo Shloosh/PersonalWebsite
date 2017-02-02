@@ -22,8 +22,7 @@ h1 {
 #content-center {
   overflow: hidden;
   padding: 2em 4em;
-  max-width: 900px;
-  vertical-align: top; }
+  max-width: 900px; }
 
 .email {
   display: inline-block;
