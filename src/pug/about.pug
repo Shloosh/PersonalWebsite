@@ -1,13 +1,12 @@
 doctype html
 html
 head
-  title Brian - About
-  link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
+  include templates.pug
+  +header("About")
   link(rel='stylesheet', type='text/css', href='css/app.css')
   link(rel='stylesheet', type='text/css', href='css/about.css')
-  include templates.pug
 body
-  +menu("about")
+  +menu("About")
   div#container
     div#main
       div#content-side-container

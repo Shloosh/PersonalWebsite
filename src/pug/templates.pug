@@ -1,3 +1,7 @@
+mixin header(title)
+  title Brian - #{title}
+  link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro', rel='stylesheet')
+
 mixin menu(selected)
   div#menu
     div#menu-items
@@ -14,7 +18,7 @@ mixin menu(selected)
           span.menu-item-text Thoughts
             div.underline-slide
       div
-        a.menu-item(href='#')
+        a.menu-item(href='projects')
           span.menu-item-text Projects
             div.underline-slide
       div

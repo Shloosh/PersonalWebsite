@@ -1,0 +1,19 @@
+doctype html
+html
+head
+  include templates.pug
+  +header("Projects")
+  link(rel='stylesheet', type='text/css', href='css/app.css')
+  link(rel='stylesheet', type='text/css', href='css/content-page.css')
+body
+  +menu("Projects")
+  div#container
+    div#main
+      div#categories
+        a.category Coding
+        span.category-spacer
+        a.category Art
+      div#content
+        h1 DINGO
+        p A flabbergasted dingo sights its dinner in the distance.
+    +footer
