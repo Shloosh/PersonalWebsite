@@ -1,6 +1,9 @@
 var express = require('express'),
-    url = require('url')
+    url = require('url'),
+    favicon = require('serve-favicon')
 var app = express()
+
+app.use(favicon(__dirname + '/src/favicon.ico'))
 
 app.use(function (req, res, next) {
   var uri = url.parse(req.url).pathname
