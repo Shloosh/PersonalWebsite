@@ -1,0 +1,28 @@
+@import "sass/variables";
+
+img {
+  box-sizing: border-box;
+}
+
+.project-pane {
+  display: inline-block;
+  width: 800px;
+  padding: 0 2em;
+  border-radius: 1em;
+  margin-bottom: 1.5em;
+  background-color: lighten($primary, 15%);
+}
+
+.project-picture {
+  width: 100%;
+  border: 2px solid $primary;
+  border-radius: 3px 3px 0 0;
+}
+
+.project-text {
+  padding: 1em;
+  border-radius: 0 0 1em 1em;
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+  background-color: $primary;
+}

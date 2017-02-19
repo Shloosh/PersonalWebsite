@@ -5,6 +5,7 @@ head
   +header("Projects")
   link(rel='stylesheet', type='text/css', href='css/app.css')
   link(rel='stylesheet', type='text/css', href='css/content-page.css')
+  link(rel='stylesheet', type='text/css', href='css/projects.css')
 body
   +menu("Projects")
   div#container
@@ -14,6 +15,11 @@ body
         span.category-spacer
         a.category Art
       div#content
-        h1 DINGO
-        p A flabbergasted dingo sights its dinner in the distance.
+        div.project-pane
+          h2 Kineticraft.net
+          img.project-picture(src='img/Kineticraft_Home.png', alt='Kineticraft Home Page')
+          div.project-text
+            p I used to run a vanilla Minecraft server with a few friends. When we realized we needed a website to garner more attention, I took it upon myself to create one. I could have just used some Wordpress template, but I had a specific idea of how I wanted it to look that only custom code could create.
+            p This website was the result. It was the first website I ever built and was hand coded in html, css, and php. I'm proud of the design, although my color selection could have been a bit better. The code isn't very pretty, but it get's the job done.
+            p.last The server is still running today. I gave the domain away to a few dedicated staff. They have since updated the website to a <a href="https://github.com/flarum/flarum">Flarum</a> template. If you play Minecraft, pay them a visit. Tell them ThunderBird21 sent you.
     +footer

@@ -60,6 +60,10 @@ p {
 	font-size: 1.25em;
 }
 
+a {
+	color: $emphasis;
+}
+
 /* Remove bullet point from list elements */
 li {
 	list-style-type: none;
@@ -87,6 +91,10 @@ li {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+}
+
+.last {
+	margin-bottom: 0;
 }
 
 .menu-item {

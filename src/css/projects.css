@@ -1,0 +1,58 @@
+/* Pattern Miaka from colourlovers */
+/* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
+/*
+$secondary: #333;
+$primary: #FFF;
+$primary-contrast: lighten($primary, 10%);
+$tertiary: #AAA;
+$tertiary-contrast: darken($tertiary, 25%);
+$emphasis: #FC354C;
+$outline: #13747D;
+*/
+/*
+$secondary: #C02942;
+$primary: #542437;
+$primary-contrast: lighten($primary, 10%);
+$tertiary: #53777A;
+$tertiary-contrast: lighten($tertiary, 25%);
+$emphasis: #ECD078;
+$outline: #D95B43;
+*/
+/*
+thought by someby vaneea
+#ECD078
+
+thoughtful brickby laleh1979
+#D95B43
+
+Thoughtlessby EnaBean
+#C02942
+
+thought you wereby chromatic aberration
+#542437
+
+Thoughtlessby geeksmakemehot
+#53777A
+*/
+img {
+  box-sizing: border-box; }
+
+.project-pane {
+  display: inline-block;
+  width: 800px;
+  padding: 0 2em;
+  border-radius: 1em;
+  margin-bottom: 1.5em;
+  background-color: #554640; }
+
+.project-picture {
+  width: 100%;
+  border: 2px solid #29221F;
+  border-radius: 3px 3px 0 0; }
+
+.project-text {
+  padding: 1em;
+  border-radius: 0 0 1em 1em;
+  margin-top: -1em;
+  margin-bottom: 1.5em;
+  background-color: #29221F; }
