@@ -41,19 +41,10 @@
 /* Pattern Miaka from colourlovers */
 /* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
 /*
-$secondary: #333;
-$primary: #FFF;
-$primary-contrast: lighten($primary, 10%);
-$tertiary: #AAA;
-$tertiary-contrast: darken($tertiary, 25%);
-$emphasis: #FC354C;
-$outline: #13747D;
-*/
-/*
 $secondary: #C02942;
 $primary: #542437;
 $primary-contrast: lighten($primary, 10%);
-$tertiary: #53777A;
+$tertiary: #4ECDC4;
 $tertiary-contrast: lighten($tertiary, 25%);
 $emphasis: #ECD078;
 $outline: #D95B43;
@@ -78,8 +69,8 @@ Thoughtlessby geeksmakemehot
 body {
   height: 100%;
   margin: 0 auto;
-  background: #29221F;
-  color: #FCF7C5;
+  background: #FFF;
+  color: black;
   font-family: 'Source Sans Pro', sans-serif;
   /* Import custom font */
   line-height: 1.5em; }
@@ -96,7 +87,7 @@ p {
   font-size: 1.25em; }
 
 a {
-  color: #FC354C; }
+  color: #C44D58; }
 
 /* Remove bullet point from list elements */
 li {
@@ -109,8 +100,8 @@ li {
   z-index: 1;
   width: 100%;
   height: 4em;
-  border-bottom: 1px solid #13747D;
-  background: #044645; }
+  border-bottom: 1px solid #0B486B;
+  background: #556270; }
 
 #menu-items {
   display: flex;
@@ -127,7 +118,6 @@ li {
 
 .menu-item {
   padding: .5em .75em;
-  color: #FCF7C5;
   font-size: 1.5em;
   text-decoration: none; }
 
@@ -138,7 +128,8 @@ li {
   display: block; }
 
 .menu-item-text {
-  position: relative; }
+  position: relative;
+  color: #FFF; }
 
 .underline-slide {
   position: absolute;
@@ -146,7 +137,7 @@ li {
   left: 0;
   width: 0;
   height: 2px;
-  background: #FC354C;
+  background: #C44D58;
   transition: width .3s; }
 
 .dropdown-content {
@@ -174,7 +165,10 @@ li {
   display: inline-block;
   width: 100%;
   padding: 1em;
-  background: #463a35;
+  background: #556270;
   /* Creates effect of footer extending to bottom of page */
-  box-shadow: 0px 10000px 0px 10000px #463a35;
+  box-shadow: 0px 10000px 0px 10000px #556270;
   text-align: center; }
+
+.footer-item {
+  color: #96a2af; }

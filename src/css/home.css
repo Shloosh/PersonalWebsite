@@ -2,19 +2,10 @@
 /* Pattern Miaka from colourlovers */
 /* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
 /*
-$secondary: #333;
-$primary: #FFF;
-$primary-contrast: lighten($primary, 10%);
-$tertiary: #AAA;
-$tertiary-contrast: darken($tertiary, 25%);
-$emphasis: #FC354C;
-$outline: #13747D;
-*/
-/*
 $secondary: #C02942;
 $primary: #542437;
 $primary-contrast: lighten($primary, 10%);
-$tertiary: #53777A;
+$tertiary: #4ECDC4;
 $tertiary-contrast: lighten($tertiary, 25%);
 $emphasis: #ECD078;
 $outline: #D95B43;
@@ -44,24 +35,24 @@ Thoughtlessby geeksmakemehot
   justify-content: center;
   width: 100%;
   height: 8%;
-  border-bottom: 3px solid #13747D;
+  border-bottom: 3px solid #0B486B;
   text-align: center;
   text-decoration: none;
-  background: #29221F;
+  background: #FFF;
   cursor: pointer;
   transition: .5s; }
 
 #title-container:hover {
-  background: #FCF7C5; }
+  background: #FFF; }
 
 #title-container:hover > #title {
-  color: #29221F; }
+  color: #556270; }
 
 /* Title text of my name */
 #title {
   font-size: 4em;
   letter-spacing: .5em;
-  color: #FCF7C5;
+  color: #FFF;
   transition: color .5s; }
 
 /* Title container on left hand side with my name - created if javascript is on */
@@ -70,23 +61,23 @@ Thoughtlessby geeksmakemehot
   z-index: 1;
   width: 5%;
   height: 100%;
-  border-right: 3px solid #13747D;
-  background: #29221F;
+  border-right: 3px solid #0B486B;
+  background: #556270;
   cursor: pointer;
   transition: .5s; }
 
 #title-svg-container:hover {
-  background: #FCF7C5; }
+  background: #FFF; }
 
 #title-svg-container:hover > #title-svg {
-  fill: #29221F;
-  stroke: #29221F; }
+  fill: #556270;
+  stroke: #556270; }
 
 /* Title text of my name in SVG to allow for animation & effects */
 #title-svg {
-  fill: #FCF7C5;
+  fill: #FFF;
   fill-opacity: 0;
-  stroke: #FCF7C5;
+  stroke: #FFF;
   stroke-width: 1px;
   stroke-dasharray: 300;
   stroke-dashoffset: 300;
@@ -107,8 +98,8 @@ Thoughtlessby geeksmakemehot
 /* Border slide-animate testing */
 .border-slide {
   position: absolute;
-  z-index: 100;
-  background: #FC354C;
+  z-index: 2;
+  background: #C44D58;
   transition: width .5s ease-out, height .5s ease-out; }
 
 .border-slide-horizontal {
@@ -150,7 +141,8 @@ Thoughtlessby geeksmakemehot
 /* Individual navigation panes */
 #thoughts {
   flex-basis: 60%;
-  text-decoration: none; }
+  text-decoration: none;
+  background-image: url("../img/color_test.png"); }
 
 #thoughts:hover > .border-slide-horizontal {
   width: 100%; }
@@ -159,7 +151,8 @@ Thoughtlessby geeksmakemehot
   height: 100%; }
 
 #projects {
-  flex-basis: 40%; }
+  flex-basis: 40%;
+  background-image: url("../img/color_test2.png"); }
 
 #projects:hover > .border-slide-horizontal {
   width: 100%; }
@@ -168,7 +161,8 @@ Thoughtlessby geeksmakemehot
   height: 100%; }
 
 #media {
-  flex-basis: 100%; }
+  flex-basis: 100%;
+  background-image: url("../img/color_test3.png"); }
 
 #media:hover > .border-slide-horizontal {
   width: 100%; }
@@ -183,9 +177,9 @@ Thoughtlessby geeksmakemehot
   flex-direction: column;
   flex-wrap: wrap;
   box-sizing: border-box;
-  border: 2px solid #13747D;
-  background: #29221F;
-  color: #FCF7C5;
+  border: 2px solid #0B486B;
+  background: #FFF;
+  color: #556270;
   text-align: center;
   text-decoration: none; }
 
@@ -206,8 +200,13 @@ Thoughtlessby geeksmakemehot
   pointer-events: none; }
 
 .nav-pane-title {
-  color: #FCF7C5;
+  z-index: 1;
+  color: #556270;
   font-size: 2em; }
+
+.nav-pane-title-background {
+  padding: 0 .5em;
+  background-color: white; }
 
 /* Nested navigation panes */
 /* #thoughts */
@@ -246,9 +245,9 @@ Thoughtlessby geeksmakemehot
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid #13747D;
-  background: #29221F;
-  color: #FCF7C5;
+  border: 2px solid #0B486B;
+  background: #FFF;
+  color: #556270;
   opacity: 0;
   font-size: 1.5em;
   text-align: center;
@@ -257,9 +256,9 @@ Thoughtlessby geeksmakemehot
   transition: .5s; }
 
 .nav-pane-nested:hover {
-  border: 2px solid #0ABFBC;
-  background-color: #FCF7C5;
-  color: #29221F; }
+  border: 2px solid #b1e9e5;
+  background-color: #556270;
+  color: #FFF; }
 
 /* Media Queries */
 /* Tablets and Desktop */

@@ -23,16 +23,16 @@
 	transition: .5s;
 }
 #title-container:hover {
-	background: $secondary;
+	background: $primary;
 }
 #title-container:hover > #title {
-	color: $primary;
+	color: $secondary;
 }
 /* Title text of my name */
 #title {
 	font-size: 4em;
 	letter-spacing: .5em;
-	color: $secondary;
+	color: $primary;
 	transition: color .5s;
 }
 
@@ -45,25 +45,25 @@
 	height: 100%;
 	border-right: 3px solid $outline;
 
-	background: $primary;
+	background: $secondary;
 
 	cursor: pointer;
 
 	transition: .5s;
 }
 #title-svg-container:hover {
-	background: $secondary;
+	background: $primary;
 }
 #title-svg-container:hover > #title-svg {
-	fill: $primary;
-	stroke: $primary;
+	fill: $secondary;
+	stroke: $secondary;
 }
 /* Title text of my name in SVG to allow for animation & effects */
 #title-svg {
-	fill: $secondary;
+	fill: $primary;
 	fill-opacity: 0;
 
-	stroke: $secondary;
+	stroke: $primary;
 	stroke-width: 1px;
 	stroke-dasharray: 300;
 	stroke-dashoffset: 300;
@@ -88,7 +88,7 @@
 /* Border slide-animate testing */
 .border-slide {
 	position: absolute;
-	z-index: 100;
+	z-index: 2;
 
 	background: $emphasis;
 
@@ -138,18 +138,21 @@
 #thoughts {
 	flex-basis: 60%;
 	text-decoration: none;
+	background-image: url('../img/color_test.png');
 }
 #thoughts:hover > .border-slide-horizontal { width: 100%;}
 #thoughts:hover > .border-slide-vertical { height: 100%;}
 
 #projects {
 	flex-basis: 40%;
+	background-image: url('../img/color_test2.png');
 }
 #projects:hover > .border-slide-horizontal { width: 100%;}
 #projects:hover > .border-slide-vertical { height: 100%;}
 
 #media {
 	flex-basis: 100%;
+	background-image: url('../img/color_test3.png');
 }
 #media:hover > .border-slide-horizontal { width: 100%;}
 #media:hover > .border-slide-vertical { height: 100%;}
@@ -191,8 +194,13 @@
 	pointer-events: none;
 }
 .nav-pane-title {
+	z-index: 1;
 	color: $secondary;
 	font-size: 2em;
+}
+.nav-pane-title-background {
+	padding: 0 .5em;
+	background-color: white;
 }
 
 /* Nested navigation panes */

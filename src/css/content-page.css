@@ -1,19 +1,10 @@
 /* Pattern Miaka from colourlovers */
 /* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
 /*
-$secondary: #333;
-$primary: #FFF;
-$primary-contrast: lighten($primary, 10%);
-$tertiary: #AAA;
-$tertiary-contrast: darken($tertiary, 25%);
-$emphasis: #FC354C;
-$outline: #13747D;
-*/
-/*
 $secondary: #C02942;
 $primary: #542437;
 $primary-contrast: lighten($primary, 10%);
-$tertiary: #53777A;
+$tertiary: #4ECDC4;
 $tertiary-contrast: lighten($tertiary, 25%);
 $emphasis: #ECD078;
 $outline: #D95B43;
@@ -53,10 +44,10 @@ Thoughtlessby geeksmakemehot
   /*width: 15%;*/
   padding: .25em 2em;
   font-size: 1.25em;
-  color: #FCF7C5; }
+  color: #556270; }
 
 .category:hover {
-  background-color: #463a35;
+  background-color: #bfbfbf;
   cursor: pointer;
   transition: .2s; }
 
@@ -64,5 +55,5 @@ Thoughtlessby geeksmakemehot
   display: inline-block;
   height: 2em;
   width: 2px;
-  background-color: #13747D;
+  background-color: #0B486B;
   vertical-align: top; }

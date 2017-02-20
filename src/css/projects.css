@@ -1,19 +1,10 @@
 /* Pattern Miaka from colourlovers */
 /* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
 /*
-$secondary: #333;
-$primary: #FFF;
-$primary-contrast: lighten($primary, 10%);
-$tertiary: #AAA;
-$tertiary-contrast: darken($tertiary, 25%);
-$emphasis: #FC354C;
-$outline: #13747D;
-*/
-/*
 $secondary: #C02942;
 $primary: #542437;
 $primary-contrast: lighten($primary, 10%);
-$tertiary: #53777A;
+$tertiary: #4ECDC4;
 $tertiary-contrast: lighten($tertiary, 25%);
 $emphasis: #ECD078;
 $outline: #D95B43;
@@ -43,11 +34,11 @@ img {
   padding: 0 2em;
   border-radius: 1em;
   margin-bottom: 1.5em;
-  background-color: #554640; }
+  background-color: #bfbfbf; }
 
 .project-picture {
   width: 100%;
-  border: 2px solid #29221F;
+  border: 2px solid #0B486B;
   border-radius: 3px 3px 0 0; }
 
 .project-text {
@@ -55,4 +46,4 @@ img {
   border-radius: 0 0 1em 1em;
   margin-top: -1em;
   margin-bottom: 1.5em;
-  background-color: #29221F; }
+  background-color: #bfbfbf; }
