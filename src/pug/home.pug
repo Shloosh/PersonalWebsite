@@ -1,0 +1,45 @@
+mixin border-slide
+  div.border-slide.border-slide-horizontal.border-slide-top
+  div.border-slide.border-slide-horizontal.border-slide-bottom
+  div.border-slide.border-slide-vertical.border-slide-right
+  div.border-slide.border-slide-vertical.border-slide-left
+
+doctype html
+html
+head
+  include templates.pug
+  +header("About")
+  link(rel='stylesheet', type='text/css', href='css/app.css')
+  link(rel='stylesheet', type='text/css', href='css/home.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  script(src='js/home.js')
+body
+  a#title-container(href='about')
+    div#title Brian Schmoker
+
+  div#main-nav
+    a#thoughts.nav-pane(href='thoughts')
+      div.nav-pane-title-container-outer
+        div.nav-pane-title-container-inner
+          span.nav-pane-title Thoughts
+      +border-slide
+      div#programming.nav-pane-nested Programming
+      div#finance.nav-pane-nested Finance
+      div#personal-development.nav-pane-nested Personal Development
+
+    div#projects.nav-pane
+      div.nav-pane-title-container-outer
+        div.nav-pane-title-container-inner
+          span.nav-pane-title Projects
+      +border-slide
+      div#coding.nav-pane-nested Coding
+      div#art.nav-pane-nested Art
+
+    div#media.nav-pane
+      div.nav-pane-title-container-outer
+        div.nav-pane-title-container-inner
+          span.nav-pane-title Media
+      +border-slide
+      div#books.nav-pane-nested Books
+      div#music.nav-pane-nested Music
+      div#podcasts.nav-pane-nested Podcasts

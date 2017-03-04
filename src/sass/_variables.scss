@@ -12,11 +12,11 @@
 $primary: #FFF;
 $primary-contrast: invert($primary);
 $primary-shade: darken($primary, 25%);
-$secondary: #556270;
-$secondary-shade: lighten($secondary, 25%);
+$secondary: #0B486B;
+$secondary-contrast: lighten($secondary, 50%);
 $tertiary: lighten(#4ECDC4, 25%);
 $emphasis: #C44D58;
-$outline: #0B486B;
+$outline: #A8DBA8;
 
 /*
 $secondary: #C02942;

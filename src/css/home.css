@@ -35,7 +35,7 @@ Thoughtlessby geeksmakemehot
   justify-content: center;
   width: 100%;
   height: 8%;
-  border-bottom: 3px solid #0B486B;
+  border-bottom: 3px solid #A8DBA8;
   text-align: center;
   text-decoration: none;
   background: #FFF;
@@ -46,7 +46,7 @@ Thoughtlessby geeksmakemehot
   background: #FFF; }
 
 #title-container:hover > #title {
-  color: #556270; }
+  color: #0B486B; }
 
 /* Title text of my name */
 #title {
@@ -61,8 +61,8 @@ Thoughtlessby geeksmakemehot
   z-index: 1;
   width: 5%;
   height: 100%;
-  border-right: 3px solid #0B486B;
-  background: #556270;
+  border-right: 3px solid #A8DBA8;
+  background: #0B486B;
   cursor: pointer;
   transition: .5s; }
 
@@ -70,8 +70,8 @@ Thoughtlessby geeksmakemehot
   background: #FFF; }
 
 #title-svg-container:hover > #title-svg {
-  fill: #556270;
-  stroke: #556270; }
+  fill: #0B486B;
+  stroke: #0B486B; }
 
 /* Title text of my name in SVG to allow for animation & effects */
 #title-svg {
@@ -141,8 +141,7 @@ Thoughtlessby geeksmakemehot
 /* Individual navigation panes */
 #thoughts {
   flex-basis: 60%;
-  text-decoration: none;
-  background-image: url("../img/color_test.png"); }
+  text-decoration: none; }
 
 #thoughts:hover > .border-slide-horizontal {
   width: 100%; }
@@ -151,8 +150,7 @@ Thoughtlessby geeksmakemehot
   height: 100%; }
 
 #projects {
-  flex-basis: 40%;
-  background-image: url("../img/color_test2.png"); }
+  flex-basis: 40%; }
 
 #projects:hover > .border-slide-horizontal {
   width: 100%; }
@@ -161,8 +159,7 @@ Thoughtlessby geeksmakemehot
   height: 100%; }
 
 #media {
-  flex-basis: 100%;
-  background-image: url("../img/color_test3.png"); }
+  flex-basis: 100%; }
 
 #media:hover > .border-slide-horizontal {
   width: 100%; }
@@ -177,9 +174,9 @@ Thoughtlessby geeksmakemehot
   flex-direction: column;
   flex-wrap: wrap;
   box-sizing: border-box;
-  border: 2px solid #0B486B;
+  border: 2px solid #A8DBA8;
   background: #FFF;
-  color: #556270;
+  color: #0B486B;
   text-align: center;
   text-decoration: none; }
 
@@ -189,7 +186,7 @@ Thoughtlessby geeksmakemehot
 
 /* Title container that lays beneath the nested nav panes */
 /* Allows for absolute positioning of nav pane title */
-.nav-pane-title-container {
+.nav-pane-title-container-outer {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -199,12 +196,12 @@ Thoughtlessby geeksmakemehot
   text-align: center;
   pointer-events: none; }
 
-.nav-pane-title {
+.nav-pane-title-container-inner {
   z-index: 1;
-  color: #556270;
+  color: #0B486B;
   font-size: 2em; }
 
-.nav-pane-title-background {
+.nav-pane-title {
   padding: 0 .5em;
   background-color: white; }
 
@@ -245,9 +242,9 @@ Thoughtlessby geeksmakemehot
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid #0B486B;
+  border: 2px solid #A8DBA8;
   background: #FFF;
-  color: #556270;
+  color: #0B486B;
   opacity: 0;
   font-size: 1.5em;
   text-align: center;
@@ -257,7 +254,7 @@ Thoughtlessby geeksmakemehot
 
 .nav-pane-nested:hover {
   border: 2px solid #b1e9e5;
-  background-color: #556270;
+  background-color: #0B486B;
   color: #FFF; }
 
 /* Media Queries */

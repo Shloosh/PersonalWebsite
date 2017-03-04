@@ -44,7 +44,7 @@ Thoughtlessby geeksmakemehot
   /*width: 15%;*/
   padding: .25em 2em;
   font-size: 1.25em;
-  color: #556270; }
+  color: #0B486B; }
 
 .category:hover {
   background-color: #bfbfbf;
@@ -55,5 +55,5 @@ Thoughtlessby geeksmakemehot
   display: inline-block;
   height: 2em;
   width: 2px;
-  background-color: #0B486B;
+  background-color: #A8DBA8;
   vertical-align: top; }

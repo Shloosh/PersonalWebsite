@@ -8,14 +8,19 @@ img {
   display: inline-block;
   width: 800px;
   padding: 0 2em;
+  //border: 2px solid $outline;
   border-radius: 1em;
   margin-bottom: 1.5em;
-  background-color: $primary-shade;
+  background-color: $secondary;
+}
+
+.project-title-text {
+  color: $primary;
 }
 
 .project-picture {
   width: 100%;
-  border: 2px solid $outline;
+  border: 2px solid $secondary-contrast;
   border-radius: 3px 3px 0 0;
 }
 
@@ -24,5 +29,6 @@ img {
   border-radius: 0 0 1em 1em;
   margin-top: -1em;
   margin-bottom: 1.5em;
-  background-color: $primary-shade;
+  color: $primary-contrast;
+  background-color: $primary;
 }

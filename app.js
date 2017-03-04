@@ -16,16 +16,15 @@ app.use(function (req, res, next) {
   next()
 })
 
+// app.get('/', function(req, res) {
+//   console.log('sending home');
+//   res.sendFile('home.html', { root: __dirname + '/src/' })
+// })
+
 app.use('/', express.static('src/', {
   index: 'home.html',
   extensions: ['html', 'htm']
 }))
-
-/*
-app.get('/', function(req, res) {
-  res.sendfile('home.html', { root: __dirname + '/src/' })
-})
-*/
 
 app.post('/', function (req, res) {
   res.send('Got a POST request')

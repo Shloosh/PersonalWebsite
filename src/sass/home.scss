@@ -138,21 +138,18 @@
 #thoughts {
 	flex-basis: 60%;
 	text-decoration: none;
-	background-image: url('../img/color_test.png');
 }
 #thoughts:hover > .border-slide-horizontal { width: 100%;}
 #thoughts:hover > .border-slide-vertical { height: 100%;}
 
 #projects {
 	flex-basis: 40%;
-	background-image: url('../img/color_test2.png');
 }
 #projects:hover > .border-slide-horizontal { width: 100%;}
 #projects:hover > .border-slide-vertical { height: 100%;}
 
 #media {
 	flex-basis: 100%;
-	background-image: url('../img/color_test3.png');
 }
 #media:hover > .border-slide-horizontal { width: 100%;}
 #media:hover > .border-slide-vertical { height: 100%;}
@@ -180,7 +177,7 @@
 
 /* Title container that lays beneath the nested nav panes */
 /* Allows for absolute positioning of nav pane title */
-.nav-pane-title-container {
+.nav-pane-title-container-outer {
 	position: absolute;
 
 	display: flex;
@@ -193,12 +190,12 @@
 
 	pointer-events: none;
 }
-.nav-pane-title {
+.nav-pane-title-container-inner {
 	z-index: 1;
 	color: $secondary;
 	font-size: 2em;
 }
-.nav-pane-title-background {
+.nav-pane-title {
 	padding: 0 .5em;
 	background-color: white;
 }

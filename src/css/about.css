@@ -36,7 +36,7 @@ h1 {
 #content-side {
   width: 20em;
   padding: 10%;
-  border-right: 2px solid #0B486B; }
+  border-right: 2px solid #A8DBA8; }
 
 #pic-of-me {
   width: 100%; }
@@ -64,7 +64,7 @@ h1 {
   #content-side {
     width: 100%;
     padding: 10% 20% 0 20%;
-    border-right: 2px solid #0B486B; }
+    border-right: 2px solid #A8DBA8; }
   #content-center {
     display: inline-block;
     max-width: 100%; } }

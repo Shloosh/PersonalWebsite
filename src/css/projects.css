@@ -34,11 +34,14 @@ img {
   padding: 0 2em;
   border-radius: 1em;
   margin-bottom: 1.5em;
-  background-color: #bfbfbf; }
+  background-color: #0B486B; }
+
+.project-title-text {
+  color: #FFF; }
 
 .project-picture {
   width: 100%;
-  border: 2px solid #0B486B;
+  border: 2px solid #83caf2;
   border-radius: 3px 3px 0 0; }
 
 .project-text {
@@ -46,4 +49,5 @@ img {
   border-radius: 0 0 1em 1em;
   margin-top: -1em;
   margin-bottom: 1.5em;
-  background-color: #bfbfbf; }
+  color: black;
+  background-color: #FFF; }
