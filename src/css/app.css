@@ -16,14 +16,15 @@
   box-sizing: border-box;
   width: 100px;
   height: 100px;
+	margin: 10px;
   padding: 10px;
   border: 10px solid #333;
-  margin: 10px;
 
   /* Color */
 /*
   background: #000;
-  color: #fff
+  color: #fff;
+	opacity: .5;
 
   /* Text */
 /*
@@ -38,33 +39,7 @@
 }
 */
 /* Import our theme colors & other variables */
-/* Pattern Miaka from colourlovers */
-/* TOOD: These names are completely fucking made up. Research standard design principles and naming conventions. */
-/*
-$secondary: #C02942;
-$primary: #542437;
-$primary-contrast: lighten($primary, 10%);
-$tertiary: #4ECDC4;
-$tertiary-contrast: lighten($tertiary, 25%);
-$emphasis: #ECD078;
-$outline: #D95B43;
-*/
-/*
-thought by someby vaneea
-#ECD078
-
-thoughtful brickby laleh1979
-#D95B43
-
-Thoughtlessby EnaBean
-#C02942
-
-thought you wereby chromatic aberration
-#542437
-
-Thoughtlessby geeksmakemehot
-#53777A
-*/
+/* Colors derived from ColourLovers */
 /* Shared body attributes */
 body {
   height: 100%;
@@ -92,6 +67,16 @@ a {
 /* Remove bullet point from list elements */
 li {
   list-style-type: none; }
+
+::selection {
+  color: #FFF;
+  background: #C44D58;
+  /* WebKit/Blink Browsers */ }
+
+::-moz-selection {
+  color: #FFF;
+  background: #C44D58;
+  /* Gecko Browsers */ }
 
 /* Navigation menu at top of most content pages */
 #menu {

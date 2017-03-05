@@ -8,7 +8,6 @@ img {
   display: inline-block;
   width: 800px;
   padding: 0 2em;
-  //border: 2px solid $outline;
   border-radius: 1em;
   margin-bottom: 1.5em;
   background-color: $secondary;
@@ -18,10 +17,63 @@ img {
   color: $primary;
 }
 
-.project-picture {
-  width: 100%;
+.project-picture-container {
+  position: relative;
+  line-height: 0;
   border: 2px solid $secondary-contrast;
   border-radius: 3px 3px 0 0;
+}
+
+.project-picture {
+  width: 100%;
+  transition: all .4s linear;
+}
+
+.hovereffect {
+  overflow: hidden;
+  text-align: center;
+}
+.hovereffect:hover .project-picture {
+  transform: scale(1.2);
+}
+.hovereffect:hover .project-picture-overlay {
+  opacity: 1;
+}
+.hovereffect:hover .hover-link {
+  opacity: 1;
+  transform: translatey(0);
+}
+
+.project-picture-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+
+  transition: all .4s ease-in-out;
+}
+
+.hover-link {
+  display: inline-block;
+  margin: 10em 0 0;
+  padding: 1em 2em;
+  border: 1px solid $primary;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: $primary;
+  opacity:0;
+
+  transition: all .2s ease-in-out;
+}
+.hover-link:hover {
+  box-shadow: 0 0 10px $primary;
 }
 
 .project-text {
