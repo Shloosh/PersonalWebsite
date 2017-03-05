@@ -270,6 +270,10 @@
 		display: block;
 		line-height: 2.5em;
 	}
+	.nav-pane-title-container-outer {
+		justify-content: flex-start;
+		margin-top: -2em;
+	}
 	#books { padding: initial; }
 	#music { padding: initial; }
 	#podcasts { padding: initial; }

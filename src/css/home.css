@@ -1,5 +1,5 @@
 /* Import our theme colors & other variables */
-/* Colors derived from ColourLovers */
+/* Colors derived from ColourLovers (http://www.colourlovers.com/palettes/) */
 /* Default title container on top when javascript is disabled */
 #title-container {
   position: absolute;
@@ -254,6 +254,9 @@
     top: 0;
     display: block;
     line-height: 2.5em; }
+  .nav-pane-title-container-outer {
+    justify-content: flex-start;
+    margin-top: -2em; }
   #books {
     padding: initial; }
   #music {
