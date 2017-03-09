@@ -6,7 +6,8 @@
   "scripts": {
     "build:sass": "cd src/ && node-sass sass/ -o css/",
     "build:pug": "cd src/ && pug -D pug/ -o ./",
-    "watch": "nodemon -e scss,js,pug -x 'npm run build:sass && npm run build:pug && node app.js'"
+    "watch": "nodemon -e scss,js,pug -x 'npm run build:sass && npm run build:pug && node app.js'",
+    "publish": "sh Push_to_Production.sh"
   },
   "repository": {
     "type": "git",
