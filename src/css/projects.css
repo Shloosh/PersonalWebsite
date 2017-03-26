@@ -4,20 +4,18 @@ img {
 
 .project-pane {
   display: inline-block;
-  width: 800px;
-  padding: 0 2em;
-  border-radius: 1em;
-  margin-bottom: 3em;
-  background-color: #0B486B; }
+  border-bottom: 2px solid #A8DBA8;
+  margin-top: 2em; }
+
+.project-pane.last {
+  border-bottom: none; }
 
 .project-title-text {
-  color: #FFF; }
+  color: black; }
 
 .project-picture-container {
   position: relative;
-  line-height: 0;
-  border: 2px solid #83caf2;
-  border-radius: 3px 3px 0 0; }
+  line-height: 0; }
 
 .project-picture {
   width: 100%;
@@ -62,9 +60,4 @@ img {
   box-shadow: 0 0 10px #FFF; }
 
 .project-text {
-  padding: 1em;
-  border-radius: 0 0 1em 1em;
-  margin-top: -1em;
-  margin-bottom: 1.5em;
-  color: black;
-  background-color: #FFF; }
+  margin-bottom: 1.5em; }

@@ -6,22 +6,21 @@ img {
 
 .project-pane {
   display: inline-block;
-  width: 800px;
-  padding: 0 2em;
-  border-radius: 1em;
-  margin-bottom: 3em;
-  background-color: $secondary;
+  border-bottom: 2px solid $outline;
+  margin-top: 2em;
+  //width: 800px;
+}
+.project-pane.last {
+  border-bottom: none;
 }
 
 .project-title-text {
-  color: $primary;
+  color: $primary-contrast;
 }
 
 .project-picture-container {
   position: relative;
   line-height: 0;
-  border: 2px solid $secondary-contrast;
-  border-radius: 3px 3px 0 0;
 }
 
 .project-picture {
@@ -77,10 +76,5 @@ img {
 }
 
 .project-text {
-  padding: 1em;
-  border-radius: 0 0 1em 1em;
-  margin-top: -1em;
   margin-bottom: 1.5em;
-  color: $primary-contrast;
-  background-color: $primary;
 }
