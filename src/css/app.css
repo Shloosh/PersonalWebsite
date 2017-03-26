@@ -109,9 +109,6 @@ li {
 .menu-item:hover .underline-slide {
   width: 100%; }
 
-.menu-item:hover .dropdown-content {
-  display: block; }
-
 .menu-item-text {
   position: relative;
   color: #FFF; }
