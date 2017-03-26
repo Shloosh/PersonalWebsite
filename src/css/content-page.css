@@ -5,29 +5,4 @@
 #content {
   display: inline-block;
   max-width: 800px;
-  margin: 1em 4em;
   text-align: left; }
-
-#categories {
-  display: inline-block;
-  width: 100%;
-  margin-top: 2em; }
-
-.category {
-  display: inline-block;
-  /*width: 15%;*/
-  padding: .25em 2em;
-  font-size: 1.25em;
-  color: #0B486B; }
-
-.category:hover {
-  background-color: #bfbfbf;
-  cursor: pointer;
-  transition: .2s; }
-
-.category-spacer {
-  display: inline-block;
-  height: 2em;
-  width: 2px;
-  background-color: #A8DBA8;
-  vertical-align: top; }
