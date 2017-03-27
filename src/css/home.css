@@ -34,6 +34,7 @@
   position: absolute;
   z-index: 1;
   width: 5%;
+  min-width: 3.5em;
   height: 100%;
   border-right: 3px solid #A8DBA8;
   background: #0B486B;
@@ -181,19 +182,7 @@
 @media only screen and (max-width: 767px) {
   /* Shrink non-SVG title */
   #title {
-    font-size: 2em; }
-  /* Allow room above for title */
-  .nav-pane {
-    padding-top: 2.5em;
-    border-bottom: none; }
-  /* Re-position nav title to top of nav */
-  .nav-pane-title-container {
-    top: 0;
-    display: block;
-    line-height: 2.5em; }
-  .nav-pane-title-container-outer {
-    justify-content: flex-start;
-    margin-top: -2em; } }
+    font-size: 2em; } }
 
 /* Portrait Phones */
 /* Short height */
