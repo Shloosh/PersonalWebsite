@@ -1,7 +1,7 @@
 /* Colors derived from ColourLovers (http://www.colourlovers.com/palettes/) */
 
 $primary: #FFF;
-$primary-contrast: invert($primary);
+$primary-contrast: #333;
 $primary-shade: darken($primary, 25%);
 $secondary: #0B486B;
 $secondary-contrast: lighten($secondary, 50%);
