@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 serverUser="ubuntu"
-serverHost="ec2-52-41-119-31.us-west-2.compute.amazonaws.com"
-serverPEM="/home/shloosh/Desktop/Programming/Server Connection Files/LinuxMicroTrial.pem"
+serverHost="138.68.241.190"
+serverPEM="/home/shloosh/Desktop/Programming/Server Connection Files/DigitalOcean.pem"
 localDir="/home/shloosh/Desktop/PersonalWebsite"
 serverDir="/var/www/brianschmoker.com"
 
