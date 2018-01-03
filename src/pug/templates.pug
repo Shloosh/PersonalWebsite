@@ -44,8 +44,15 @@ mixin menu(selected)
 mixin footer
   div#footer
     ul
-      li.footer-item Home
-      li.footer-item About
-      li.footer-item Thoughts
-      li.footer-item Projects
-      li.footer-item Media
+      li
+        a.footer-item(href='/') Home
+      li
+        a.footer-item(href='thoughts') Thoughts
+      li
+        a.footer-item(href='projects') Projects
+      li
+        a.footer-item(href='about') About
+      li.footer-item#copyright Copyright © 2018
+        // Set the copyright to the current year via javascript
+        script.
+          document.getElementById("copyright").textContent = "Copyright © " +  (new Date()).getFullYear()

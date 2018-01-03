@@ -151,4 +151,8 @@ li {
   text-align: center; }
 
 .footer-item {
-  color: #83caf2; }
+  color: #83caf2;
+  text-decoration: none; }
+
+#copyright {
+  margin-top: 1em; }
