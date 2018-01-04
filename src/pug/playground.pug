@@ -6,9 +6,11 @@ head
   link(rel='stylesheet', type='text/css', href='css/app.css')
   link(rel='stylesheet', type='text/css', href='css/content-page.css')
   link(rel='stylesheet', type='text/css', href='css/playground.css')
+  script(src='js/playground.js')
 body
   +menu()
   div#container
     div#main
-      div#canvas
+      canvas#canvas(width=1200, height=750)
+      script(type='text/javascript') startGame();
     +footer

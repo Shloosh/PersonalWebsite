@@ -1,7 +1,6 @@
 /* Colors derived from ColourLovers (http://www.colourlovers.com/palettes/) */
 #canvas {
-  width: 1200px;
   display: inline-block;
-  height: 750px;
   margin: 1.5em;
-  background: #AAA; }
+  background: #F2F2F2;
+  border: 1px solid black; }
