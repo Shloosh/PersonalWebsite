@@ -1,13 +1,26 @@
-var ball;
+var player;
+var pressedKeys;
+
+window.addEventListener("keydown", function(e) {
+  if ((e.keyCode >= 37 && e.keyCode <= 40) || e.keyCode == 32) {
+    e.preventDefault();
+  }
+  pressedKeys[e.keyCode] = true;
+});
+window.addEventListener("keyup", function(e) {
+  delete pressedKeys[e.keyCode];
+});
+
 
 function startGame() {
+  pressedKeys = {};
   game.start();
-  ball = new rect(game.canvas.width/2, game.canvas.height/2, 50, "red");
+  player = new rect(game.canvas.width/2, game.canvas.height/2, 50, 50, "red");
 }
 
 function animate() {
   game.clear();
-  ball.update();
+  player.update();
 }
 
 var game = {
@@ -22,32 +35,70 @@ var game = {
   }
 }
 
-function rect(x, y, r, color) {
+function rect(x, y, width, height, color) {
   this.x = x;
   this.y = y;
-  this.r = r;
+  this.width = width;
+  this.height = height;
   this.color = color;
+  this.jumping = false;
+  this.falling = false;
 
-  this.dx = Math.ceil(Math.random()*21)-11;
-  this.dy = Math.ceil(Math.random()*21)-11;
+  this.dx = 0;
+  this.dy = 0;
 
   this.update = function() {
-    if (this.x+this.dx < 0+r || this.x+this.dx > game.canvas.width-this.r) {
-      this.dx *= -1;
+    if (pressedKeys[37]) {
+      this.dx -= 5;
     }
-    if (this.y+this.dy < 0+r || this.y+this.dy > game.canvas.height-this.r) {
-      this.dy *= -1;
+    if (pressedKeys[38] && !this.jumping && !this.falling) {
+      this.jumping = true;
+      this.dy = -20;
+    }
+    if (pressedKeys[39]) {
+      this.dx += 5;
+    }
+
+    if (pressedKeys[32] && !this.jumping && !this.falling) {
+      this.jumping = true;
+      this.dy = -20;
+    }
+
+    if (this.falling && this.dy == 0 && !pressedKeys[32] && !pressedKeys[38]) {
+      this.falling = false;
+    }
+    if (this.jumping && this.dy >= 0) {
+      this.jumping = false;
+      this.falling = true;
+    }
+
+    this.dy += .8;
+    if (this.dx > 5) {
+      this.dx = 5;
+    } else if (this.dx < -5) {
+      this.dx = -5
     }
 
     this.x += this.dx;
     this.y += this.dy;
 
+    if (this.y+this.height >= game.canvas.height) {
+      this.y = game.canvas.height-this.height;
+      this.dy = 0;
+
+      if (this.dx != 0 && (this.dx > 0 || this.dx < 0)) {
+        if (Math.abs(this.dx) < .1) {
+          this.dx = 0;
+        } else {
+          this.dx *= .97;
+        }
+      }
+    }
+
     var ctx = game.context;
 
     ctx.fillStyle = color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.r, 0, 2*Math.PI);
-    ctx.fill();
+    ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
 
