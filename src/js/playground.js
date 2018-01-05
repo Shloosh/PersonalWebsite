@@ -3,7 +3,7 @@ var pressedKeys;
 var gravity, friction;
 var moveSpeed, jumpHeight;
 var player;
-var block, block2;
+var blocks;
 
 window.addEventListener("keydown", function(e) {
   if ((e.keyCode >= 37 && e.keyCode <= 40) || e.keyCode == 32) {
@@ -26,12 +26,18 @@ function startGame() {
   game.start();
 
   player = new Player(game.canvas.width/2, game.canvas.height/2, 50, 50, "red");
-  block = new Rect(100, 100, 50, 50, "green");
-  block2 = new Rect(game.canvas.width-100, 100, 50, 50, "blue");
+
+  blocks = [];
+  blocks.push(new Rect(100, 100, 50, 50, "green"));
+  blocks.push(new Rect(game.canvas.width-100, 100, 50, 50, "blue"));
+  //block = new Rect(100, 100, 50, 50, "green");
+  //block2 = new Rect(game.canvas.width-100, 100, 50, 50, "blue");
 }
 
 class Game {
   constructor(canvas) {
+    var self = this;
+
     this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
 
@@ -41,6 +47,21 @@ class Game {
 
     this.leftScroll = this.canvas.width*.25;
     this.rightScroll = this.canvas.width*.75;
+
+    this.mouseX = 0;
+    this.mouseY = 0;
+    this.canvas.addEventListener('mousemove', function(e) {
+      var rect = canvas.getBoundingClientRect();
+      self.mouseX = e.clientX - rect.left - self.x;
+      self.mouseY = e.clientY - rect.top - self.y;
+    }, false);
+
+    this.canvas.addEventListener('mousedown', function(e) {
+      var blockSize = 50;
+      var blockX = Math.round((self.mouseX-blockSize/2)/blockSize)*blockSize;
+      var blockY = Math.round((self.mouseY-blockSize/2)/blockSize)*blockSize;
+      blocks.push(new Rect(blockX, blockY, blockSize, blockSize, "black"));
+    });
   }
 
   start() {
@@ -55,8 +76,7 @@ class Game {
   animate() {
     this.clear();
     player.update();
-    block.update();
-    block2.update();
+    blocks.forEach(function (block) { block.update(); });
   }
 }
 
