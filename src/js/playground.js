@@ -1,6 +1,7 @@
 var game;
 var pressedKeys;
 var gravity, friction;
+var moveSpeed, jumpHeight;
 var player;
 var block, block2;
 
@@ -18,6 +19,8 @@ function startGame() {
   pressedKeys = {};
   gravity = .8;
   friction = .97;
+  moveSpeed = 10;
+  jumpHeight = 20;
 
   game = new Game(document.getElementById("canvas"));
   game.start();
@@ -31,6 +34,10 @@ class Game {
   constructor(canvas) {
     this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
+
+    // Map locations for scrolling
+    this.x = 0;
+    this.y = 0;
 
     this.leftScroll = this.canvas.width*.25;
     this.rightScroll = this.canvas.width*.75;
@@ -61,8 +68,8 @@ class Rect {
     this.height = height;
     this.color = color;
 
-    this.xMid = x+width/2;
-    this.yMid = y+height/2;
+    this.xMid = this.x+this.width/2;
+    this.yMid = this.y+this.height/2;
 
     this.dx = 0;
     this.dy = 0;
@@ -72,7 +79,7 @@ class Rect {
     var ctx = game.context;
 
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    ctx.fillRect(this.x+game.x, this.y+game.y, this.width, this.height);
   }
 }
 
@@ -86,19 +93,19 @@ class Player extends Rect {
 
   update() {
     if (pressedKeys[37]) {
-      this.dx -= 5;
+      this.dx -= moveSpeed;
     }
     if (pressedKeys[38] && !this.jumping && !this.falling) {
       this.jumping = true;
-      this.dy = -20;
+      this.dy = -jumpHeight;
     }
     if (pressedKeys[39]) {
-      this.dx += 5;
+      this.dx += moveSpeed;
     }
 
     if (pressedKeys[32] && !this.jumping && !this.falling) {
       this.jumping = true;
-      this.dy = -20;
+      this.dy = -jumpHeight;
     }
 
     if (this.falling && this.dy == 0 && !pressedKeys[32] && !pressedKeys[38]) {
@@ -109,11 +116,11 @@ class Player extends Rect {
       this.falling = true;
     }
 
-    this.dy += .8;
-    if (this.dx > 5) {
-      this.dx = 5;
-    } else if (this.dx < -5) {
-      this.dx = -5
+    this.dy += gravity;
+    if (this.dx > moveSpeed) {
+      this.dx = moveSpeed;
+    } else if (this.dx < -moveSpeed) {
+      this.dx = -moveSpeed;
     }
 
     this.x += this.dx;
@@ -127,17 +134,42 @@ class Player extends Rect {
         if (Math.abs(this.dx) < .1) {
           this.dx = 0;
         } else {
-          this.dx *= .97;
+          this.dx *= friction;
         }
       }
     }
 
-    if (this.x < game.leftScroll) {
-      game.context.fillText("Left thresh", 400, 100);
-    } else if (this.x > game.rightScroll) {
-      game.context.fillText("Right thresh", 400, 100);
+    this.xMid = this.x+this.width/2;
+    this.yMid = this.y+this.height/2;
+
+    if (this.xMid < game.leftScroll) {
+      game.x += game.leftScroll-this.xMid;
+      this.x = game.leftScroll-this.width/2;
+    } else if (this.xMid > game.rightScroll) {
+      game.x += game.rightScroll-this.xMid;
+      this.x = game.rightScroll-this.width/2;
     }
 
-    super.update();
+    var ctx = game.context;
+
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+
+    /*
+    ctx.fillStyle = "black";
+    ctx.beginPath();
+    ctx.arc(this.xMid, this.yMid, 1, 0, 2*Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(game.leftScroll, 0);
+    ctx.lineTo(game.leftScroll, game.canvas.height);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(game.rightScroll, 0);
+    ctx.lineTo(game.rightScroll, game.canvas.height);
+    ctx.stroke();
+    */
   }
 }
