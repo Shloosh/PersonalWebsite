@@ -1,6 +1,6 @@
 var game;
 var pressedKeys;
-var gravity, friction;
+var gravity, friction, airFriction;
 var moveSpeed, jumpHeight;
 var player;
 var blocks;
@@ -18,7 +18,8 @@ window.addEventListener("keyup", function(e) {
 function startGame() {
   pressedKeys = {};
   gravity = .8;
-  friction = .97;
+  friction = .5;
+  airFriction = .95;
   moveSpeed = 10;
   jumpHeight = 20;
 
@@ -30,6 +31,7 @@ function startGame() {
   blocks = [];
   blocks.push(new Rect(100, 100, 50, 50, "green"));
   blocks.push(new Rect(game.canvas.width-100, 100, 50, 50, "blue"));
+  blocks.push(new Rect(0, game.canvas.height-100, game.canvas.width, 50, "black"));
   //block = new Rect(100, 100, 50, 50, "green");
   //block2 = new Rect(game.canvas.width-100, 100, 50, 50, "blue");
 }
@@ -47,6 +49,8 @@ class Game {
 
     this.leftScroll = this.canvas.width*.25;
     this.rightScroll = this.canvas.width*.75;
+    this.topScroll = this.canvas.height*.25;
+    this.bottomScroll = this.canvas.height*.75;
 
     this.mouseX = 0;
     this.mouseY = 0;
@@ -56,11 +60,12 @@ class Game {
       self.mouseY = e.clientY - rect.top - self.y;
     }, false);
 
+    this.mouseDown = false;
     this.canvas.addEventListener('mousedown', function(e) {
-      var blockSize = 50;
-      var blockX = Math.round((self.mouseX-blockSize/2)/blockSize)*blockSize;
-      var blockY = Math.round((self.mouseY-blockSize/2)/blockSize)*blockSize;
-      blocks.push(new Rect(blockX, blockY, blockSize, blockSize, "black"));
+      self.mouseDown = true;
+    });
+    this.canvas.addEventListener('mouseup', function(e) {
+      self.mouseDown = false;
     });
   }
 
@@ -75,8 +80,26 @@ class Game {
 
   animate() {
     this.clear();
-    player.update();
+
+    if (this.mouseDown) {
+      var blockSize = 50;
+      var newBlockX = Math.round((this.mouseX-blockSize/2)/blockSize)*blockSize;
+      var newBlockY = Math.round((this.mouseY-blockSize/2)/blockSize)*blockSize;
+      var blockExists = false;
+
+      blocks.forEach(function(block) {
+        if (newBlockX == block.x && newBlockY == block.y) {
+          blockExists = true;
+        }
+      });
+
+      if (!blockExists) {
+        blocks.push(new Rect(newBlockX, newBlockY, blockSize, blockSize, "black"));
+      }
+    }
+
     blocks.forEach(function (block) { block.update(); });
+    player.update();
   }
 }
 
@@ -146,6 +169,66 @@ class Player extends Rect {
     this.x += this.dx;
     this.y += this.dy;
 
+    this.xMid = this.x+this.width/2;
+    this.yMid = this.y+this.height/2;
+
+    var self = this;
+    blocks.forEach(function (block) {
+      var blockXMid = block.xMid + game.x;
+      var blockYMid = block.yMid + game.y;
+
+      var selfLeft = self.xMid-self.width/2;
+      var selfRight = self.xMid+self.width/2;
+      var selfTop = self.yMid-self.height/2;
+      var selfBottom = self.yMid+self.height/2;
+      var blockLeft = blockXMid-block.width/2;
+      var blockRight = blockXMid+block.width/2;
+      var blockTop = blockYMid-block.height/2;
+      var blockBottom = blockYMid+block.height/2;
+
+      var betweenBlockY = (selfBottom >= blockTop && selfBottom <= blockBottom) || (selfTop >= blockTop && selfTop <= blockBottom);
+      var betweenBlockX = (selfLeft <= blockRight && selfLeft >= blockLeft) || (selfRight <= blockRight && selfRight >= blockLeft);
+
+      if (betweenBlockY && betweenBlockX) {
+        if (Math.abs(self.yMid-blockYMid) > Math.abs(self.xMid-blockXMid)) {
+          if (self.yMid < blockYMid) {
+            self.y = blockTop-self.height;
+          } else {
+            self.y = blockBottom;
+          }
+          self.dy = 0;
+        } else {
+          if (self.xMid > blockXMid) {
+            self.x = blockRight;
+          } else {
+            self.x = blockLeft-self.width;
+          }
+          self.dx = 0;
+        }
+      }
+
+      /*
+      if (Math.abs((block.xMid+game.x)-self.xMid) < (block.width/2 + self.width/2) && Math.abs((block.yMid+game.y)-self.yMid) < (block.height/2 + self.height/2)) {
+        if (Math.abs((block.xMid+game.x)-self.xMid) < (block.width/2 + self.width/2)) {
+          if (self.xMid < block.xMid) {
+            self.x = (block.x+game.x)-self.x;
+          } else {
+            self.x = (block.x+game.x)+block.width;
+          }
+          self.dx = 0;
+        }
+        if (Math.abs((block.yMid+game.y)-self.yMid) < (block.height/2 + self.height/2)) {
+          if (self.yMid < block.yMid) {
+            self.y = (block.y+game.y)-self.y;
+          } else {
+            self.y = (block.y+game.y)+block.height;
+          }
+          self.dy = 0;
+        }
+      }
+      */
+    });
+
     if (this.y+this.height >= game.canvas.height) {
       this.y = game.canvas.height-this.height;
       this.dy = 0;
@@ -157,10 +240,9 @@ class Player extends Rect {
           this.dx *= friction;
         }
       }
+    } else {
+      this.dx *= airFriction;
     }
-
-    this.xMid = this.x+this.width/2;
-    this.yMid = this.y+this.height/2;
 
     if (this.xMid < game.leftScroll) {
       game.x += game.leftScroll-this.xMid;
@@ -168,6 +250,14 @@ class Player extends Rect {
     } else if (this.xMid > game.rightScroll) {
       game.x += game.rightScroll-this.xMid;
       this.x = game.rightScroll-this.width/2;
+    }
+
+    if (this.yMid < game.topScroll) {
+      game.y += game.topScroll-this.yMid;
+      this.y = game.topScroll-this.height/2;
+    } else if (this.yMid > game.bottomScroll) {
+      game.y += game.bottomScroll-this.yMid;
+      this.y = game.bottomScroll-this.height/2;
     }
 
     var ctx = game.context;
