@@ -1,5 +1,8 @@
-var player;
+var game;
 var pressedKeys;
+var gravity, friction;
+var player;
+var block, block2;
 
 window.addEventListener("keydown", function(e) {
   if ((e.keyCode >= 37 && e.keyCode <= 40) || e.keyCode == 32) {
@@ -11,43 +14,77 @@ window.addEventListener("keyup", function(e) {
   delete pressedKeys[e.keyCode];
 });
 
-
 function startGame() {
   pressedKeys = {};
+  gravity = .8;
+  friction = .97;
+
+  game = new Game(document.getElementById("canvas"));
   game.start();
-  player = new rect(game.canvas.width/2, game.canvas.height/2, 50, 50, "red");
+
+  player = new Player(game.canvas.width/2, game.canvas.height/2, 50, 50, "red");
+  block = new Rect(100, 100, 50, 50, "green");
+  block2 = new Rect(game.canvas.width-100, 100, 50, 50, "blue");
 }
 
-function animate() {
-  game.clear();
-  player.update();
-}
-
-var game = {
-  canvas: document.getElementById("canvas"),
-  start: function() {
-    this.canvas = document.getElementById("canvas");
+class Game {
+  constructor(canvas) {
+    this.canvas = canvas;
     this.context = this.canvas.getContext("2d");
-    this.interval = setInterval(animate, 20);
-  },
-  clear: function() {
+
+    this.leftScroll = this.canvas.width*.25;
+    this.rightScroll = this.canvas.width*.75;
+  }
+
+  start() {
+    var self = this;
+    self.interval = setInterval(function() { self.animate(); }, 20);
+  }
+
+  clear() {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
+
+  animate() {
+    this.clear();
+    player.update();
+    block.update();
+    block2.update();
   }
 }
 
-function rect(x, y, width, height, color) {
-  this.x = x;
-  this.y = y;
-  this.width = width;
-  this.height = height;
-  this.color = color;
-  this.jumping = false;
-  this.falling = false;
+class Rect {
+  constructor(x, y, width, height, color) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.color = color;
 
-  this.dx = 0;
-  this.dy = 0;
+    this.xMid = x+width/2;
+    this.yMid = y+height/2;
 
-  this.update = function() {
+    this.dx = 0;
+    this.dy = 0;
+  }
+
+  update() {
+    var ctx = game.context;
+
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.width, this.height);
+  }
+}
+
+class Player extends Rect {
+  constructor(x, y, width, height, color) {
+    super(x, y, width, height, color);
+
+    this.jumping = false;
+    this.falling = false;
+  }
+
+  update() {
     if (pressedKeys[37]) {
       this.dx -= 5;
     }
@@ -95,13 +132,12 @@ function rect(x, y, width, height, color) {
       }
     }
 
-    var ctx = game.context;
+    if (this.x < game.leftScroll) {
+      game.context.fillText("Left thresh", 400, 100);
+    } else if (this.x > game.rightScroll) {
+      game.context.fillText("Right thresh", 400, 100);
+    }
 
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
+    super.update();
   }
 }
-
-/*
-ctx.fillText("Welcome to the Playground", 400, 100)
-*/
