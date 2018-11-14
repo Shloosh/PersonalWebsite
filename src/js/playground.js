@@ -19,7 +19,7 @@ function startGame() {
   pressedKeys = {};
   gravity = .8;
   friction = .5;
-  airFriction = .95;
+  airFriction = .9;
   moveSpeed = 10;
   jumpHeight = 20;
 
@@ -31,7 +31,7 @@ function startGame() {
   blocks = [];
   blocks.push(new Rect(100, 100, 50, 50, "green"));
   blocks.push(new Rect(game.canvas.width-100, 100, 50, 50, "blue"));
-  blocks.push(new Rect(0, game.canvas.height-100, game.canvas.width, 50, "black"));
+  //blocks.push(new Rect(0, game.canvas.height-100, game.canvas.width, 50, "black"));
   //block = new Rect(100, 100, 50, 50, "green");
   //block2 = new Rect(game.canvas.width-100, 100, 50, 50, "blue");
 }
@@ -47,8 +47,8 @@ class Game {
     this.x = 0;
     this.y = 0;
 
-    this.leftScroll = this.canvas.width*.25;
-    this.rightScroll = this.canvas.width*.75;
+    this.leftScroll = this.canvas.width*.4;
+    this.rightScroll = this.canvas.width*.6;
     this.topScroll = this.canvas.height*.25;
     this.bottomScroll = this.canvas.height*.75;
 
@@ -186,10 +186,20 @@ class Player extends Rect {
       var blockTop = blockYMid-block.height/2;
       var blockBottom = blockYMid+block.height/2;
 
+      /*
       var betweenBlockY = (selfBottom >= blockTop && selfBottom <= blockBottom) || (selfTop >= blockTop && selfTop <= blockBottom);
       var betweenBlockX = (selfLeft <= blockRight && selfLeft >= blockLeft) || (selfRight <= blockRight && selfRight >= blockLeft);
+      */
 
-      if (betweenBlockY && betweenBlockX) {
+      // AABB collision test
+      if (selfRight > blockLeft && selfLeft < blockRight &&
+          selfBottom > blockTop && selfTop < blockBottom) {
+        var m = (blockYMid-self.yMid)/(blockXMid-self.xMid);
+        var b = self.yMid-m*self.xMid;
+
+        console.log("m: " + m + ", b: " + b);
+
+        ///*
         if (Math.abs(self.yMid-blockYMid) > Math.abs(self.xMid-blockXMid)) {
           if (self.yMid < blockYMid) {
             self.y = blockTop-self.height;
@@ -205,6 +215,7 @@ class Player extends Rect {
           }
           self.dx = 0;
         }
+        //*/
       }
 
       /*
@@ -244,14 +255,22 @@ class Player extends Rect {
       this.dx *= airFriction;
     }
 
+    // Add easing to scroll
     if (this.xMid < game.leftScroll) {
-      game.x += game.leftScroll-this.xMid;
-      this.x = game.leftScroll-this.width/2;
+      var ease = (game.leftScroll-this.xMid)/20;
+      game.x += ease;
+      this.x += ease;
+      //game.x += game.leftScroll-this.xMid;
+      //this.x = game.leftScroll-this.width/2;
     } else if (this.xMid > game.rightScroll) {
-      game.x += game.rightScroll-this.xMid;
-      this.x = game.rightScroll-this.width/2;
+      var ease = (game.rightScroll-this.xMid)/20;
+      game.x += ease;
+      this.x += ease;
+      //game.x += game.rightScroll-this.xMid;
+      //this.x = game.rightScroll-this.width/2;
     }
 
+    /*
     if (this.yMid < game.topScroll) {
       game.y += game.topScroll-this.yMid;
       this.y = game.topScroll-this.height/2;
@@ -259,6 +278,7 @@ class Player extends Rect {
       game.y += game.bottomScroll-this.yMid;
       this.y = game.bottomScroll-this.height/2;
     }
+    */
 
     var ctx = game.context;
 
