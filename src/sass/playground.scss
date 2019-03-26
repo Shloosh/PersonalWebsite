@@ -6,3 +6,11 @@
   background: #F2F2F2;
   border: 1px solid black;
 }
+
+/* Phones & Portrait Tablets */
+@media only screen and (max-width: 767px) {
+	#canvas {
+    width: 300px;
+    height: 400px;
+  }
+}

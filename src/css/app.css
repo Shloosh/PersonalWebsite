@@ -67,6 +67,10 @@ p {
 a {
   color: #C44D58; }
 
+/* Remove left padding */
+ul {
+  padding-inline-start: 0; }
+
 /* Remove bullet point from list elements */
 li {
   list-style-type: none; }
@@ -126,7 +130,7 @@ li {
   transition: width .3s; }
 
 #home-button {
-  margin-right: 2em; }
+  margin-right: 4em; }
 
 #container {
   position: absolute;
@@ -156,3 +160,13 @@ li {
 
 #copyright {
   margin-top: 1em; }
+
+/* Phones & Portrait Tablets */
+@media only screen and (max-width: 767px) {
+  .menu-item {
+    padding: .5em .5em;
+    font-size: 1.3em; }
+  #playground-menu-item {
+    display: none; }
+  p {
+    font-size: 1.1em; } }

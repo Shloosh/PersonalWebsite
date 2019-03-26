@@ -18,16 +18,16 @@ mixin menu(selected)
         a#home-button.menu-item(href='/')
           span.menu-item-text Home
             div.underline-slide
-      div
-        a.menu-item(href='thoughts')
-          span.menu-item-text Thoughts
-            div.underline-slide
+      //- div
+      //-   a.menu-item(href='thoughts')
+      //-     span.menu-item-text Thoughts
+      //-       div.underline-slide
       div
         a.menu-item(href='projects')
           span.menu-item-text Projects
             div.underline-slide
       div
-        a.menu-item(href='playground')
+        a.menu-item#playground-menu-item(href='playground')
           span.menu-item-text Playground
             div.underline-slide
       div
@@ -50,8 +50,8 @@ mixin footer
     ul
       li
         a.footer-item(href='/') Home
-      li
-        a.footer-item(href='thoughts') Thoughts
+      //- li
+      //-   a.footer-item(href='thoughts') Thoughts
       li
         a.footer-item(href='projects') Projects
       li

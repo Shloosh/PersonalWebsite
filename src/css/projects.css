@@ -32,8 +32,7 @@ img {
   opacity: 1; }
 
 .hovereffect:hover .hover-link {
-  opacity: 1;
-  transform: translatey(0); }
+  opacity: 1; }
 
 .project-picture-overlay {
   position: absolute;
@@ -47,7 +46,7 @@ img {
 
 .hover-link {
   display: inline-block;
-  margin: 10em 0 0;
+  margin: 22% 0 0;
   padding: 1em 2em;
   border: 1px solid #FFF;
   text-decoration: none;
@@ -61,3 +60,11 @@ img {
 
 .project-text {
   margin-bottom: 1.5em; }
+
+/* Phones & Portrait Tablets */
+@media only screen and (max-width: 767px) {
+  .project-picture-overlay {
+    opacity: 1; }
+  .hover-link {
+    margin: 20% 0 0;
+    opacity: 1; } }
