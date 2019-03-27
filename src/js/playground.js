@@ -5,6 +5,23 @@ var moveSpeed, jumpHeight;
 var player;
 var blocks;
 
+function resizeCanvas(mediaQuery) {
+  if (mediaQuery.matches) { // If media query matches\
+    document.getElementById("canvas").setAttribute("width", "300");
+    document.getElementById("canvas").setAttribute("height", "200");
+    startGame();
+  } else {
+    document.getElementById("canvas").setAttribute("width", "900");
+    document.getElementById("canvas").setAttribute("height", "600");
+    startGame();
+  }
+}
+document.addEventListener("DOMContentLoaded", function(event) { 
+  var mediaQuery = window.matchMedia("(max-width: 767px)")
+  resizeCanvas(mediaQuery) // Call listener function at run time
+  mediaQuery.addListener(resizeCanvas) // Attach listener function on state changes
+});
+
 window.addEventListener("keydown", function(e) {
   if ((e.keyCode >= 37 && e.keyCode <= 40) || e.keyCode == 32) {
     e.preventDefault();
@@ -26,11 +43,11 @@ function startGame() {
   game = new Game(document.getElementById("canvas"));
   game.start();
 
-  player = new Player(game.canvas.width/2, game.canvas.height/2, 50, 50, "red");
+  player = new Player(game.canvas.width/2, game.canvas.height/2, game.canvas.width/18, game.canvas.height/12, "red");
 
   blocks = [];
-  blocks.push(new Rect(100, 100, 50, 50, "green"));
-  blocks.push(new Rect(game.canvas.width-100, 100, 50, 50, "blue"));
+  blocks.push(new Rect(100, 100, game.canvas.width/18, game.canvas.height/12, "green"));
+  blocks.push(new Rect(game.canvas.width-100, 100, game.canvas.width/18, game.canvas.height/12, "blue"));
   //blocks.push(new Rect(0, game.canvas.height-100, game.canvas.width, 50, "black"));
   //block = new Rect(100, 100, 50, 50, "green");
   //block2 = new Rect(game.canvas.width-100, 100, 50, 50, "blue");
@@ -82,7 +99,7 @@ class Game {
     this.clear();
 
     if (this.mouseDown) {
-      var blockSize = 50;
+      var blockSize = game.canvas.width/18;
       var newBlockX = Math.round((this.mouseX-blockSize/2)/blockSize)*blockSize;
       var newBlockY = Math.round((this.mouseY-blockSize/2)/blockSize)*blockSize;
       var blockExists = false;
