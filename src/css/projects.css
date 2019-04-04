@@ -58,7 +58,7 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  opacity: 0;
+  opacity: 0.8;
   transition: all .4s ease-in-out; }
 
 .hover-link {
@@ -69,7 +69,7 @@ img {
   text-decoration: none;
   text-transform: uppercase;
   color: #FFF;
-  opacity: 0;
+  opacity: 1;
   transition: all .2s ease-in-out; }
 
 .hover-link:hover {

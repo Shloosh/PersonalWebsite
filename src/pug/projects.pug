@@ -23,91 +23,72 @@ body
         div.project-pane
           span.internal-link#deep-crypto-trader
           h1.project-title-text Deep Cryptocurrency Trader (2018)
-          div.project-picture-container
-            div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Image Description')
-              div.project-picture-overlay
-                a.hover-link(href='http://kineticraft.brianschmoker.com') View Project
+          img.project-picture(src='img/deep_crypto_trader_loose.svg', alt='A graph of the algorithm working on historical data. Predicted price is plotted against real price.')
           div.project-text
-            p First Paragraph
-            p.last Last paragraph
+            p Both neural networks and cryptocurrency have fascinated me for a long time. The more I read about neural networks, the more I began to realize they might be well suited for quantitiative analysis. Particularly LSTM neural networks for temporal analysis and convolutional networks to recognize patterns at different temporal resolutions.
+            p There is an open source cryptocurrency trading platform called <a href="https://gekko.wizb.it/" target="_blank">Gekko</a> that pulls data from crypto exchanges, makes it easy to execute trades on different exchanges, and allows for basic trading strategies.
+            p I'm currently working on a tool to extend Gekko and allow for a neural network trading algorithm. So far, I have a separate Python program that pulls data from the Gekko database, formats the data using <a href='http://www.numpy.org/', target="_blank">numpy</a> and <a href='https://pandas.pydata.org/', target="_blank">pandas</a>, runs it through a prediction model powered by <a href='https://keras.io/', target="_blank">keras</a> and <a href='https://www.tensorflow.org/', target="_blank">tensorflow</a>, and plots the predictions against the actual data using <a href='https://matplotlib.org/', target="_blank">matplotlib</a>, as seen in the above image. The project also uses a <a href='https://github.com/toml-lang/toml', target="_blank">TOML</a> config file, which I found refreshingly simple and easy to read.
+            p The Python program currently supports the following predictive models: Bi-directional LSTM, Simple Lag Model, Momentum Model, Single Point Random Walk, "Full Interval" Random Walk, Auto Regressive, and ARIMA. The next steps are to experiment with new neural network configurations, and to hook up the predictive engine with Gekko and experiment with paper trading.
+            p.last This project is suspended until I get more time to work on it.
         div.project-pane
           span.internal-link#amazon-scraper
           h1.project-title-text Amazon Scraper (2018)
-          div.project-picture-container
-            div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Image Description')
-              div.project-picture-overlay
-                a.hover-link(href='http://kineticraft.brianschmoker.com') View Project
+          img.project-picture(src='img/affiliate_categories_md.png', alt='Spreadsheet snapshot of data collected')
           div.project-text
-            p First Paragraph
-            p.last Last paragraph
+            p After my initial success with the <a href='https://tea-culture.net', target="_blank">tea-culture.net</a> affiliate site, I began looking for ways to expand to new websites. Since Amazon pays different affiliate rates for different categories, and since the tea market is small and potentially oversaturated, I needed a tool that would help me find high commision, large, undersaturated markets.
+            p.last To help me, I programmed a C# tool that crawls over thousands of different product categories on Amazon. It looks at the 20 best selling items in that category and records the price and number of reviews (to get a proportional estimate of # of units sold). The program utilizes an HTML parsing library called <a href="https://html-agility-pack.net/" target="_blank">HTML Agility Pack</a>. There is also custom logic to help prevent detection as a bot, and bypass CAPCHAs if they occur.
         div.project-pane
           span.internal-link#tea-culture
           h1.project-title-text Affiliate Site - tea-culture.net (2017)
           div.project-picture-container
             div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Image Description')
+              img.project-picture(src='img/tea_culture_lg.png', alt='A blog post at tea-culture.net')
               div.project-picture-overlay
-                a.hover-link(href='https://tea-culture.net') View Project
+                a.hover-link(href='https://tea-culture.net', target="_blank") View Project
           div.project-text
-            p First Paragraph
-            p.last Last paragraph
+            p I created <a href='https://tea-culture.net', target="_blank">tea-culture.net</a> as a way to generate passive income. The site nets about $200 to $250 a month with minimal upkeep. Revenue is generated primarily through review articles. I find a type of product people are interested in buying, like "tea infuser bottles", and I write a comprehensive review of the products on the market. Within the article, I link back to Amazon. If they buy that product, Amazon gives me a commission of between 2-10% depending on the market.
+            p.last The site is entirely Wordpress and didn't require much coding other than a few CSS and PHP modifications. It's hosted on the same server as this website, utilizing a Debian, Nginx, PHP, and MySql stack. All web files and SQL data are backed up nightly by a custom script. Every article with the exception of 1 or 2 is written and researched by me.
         div.project-pane
           span.internal-link#this-website
           h1.project-title-text This Website (2017)
-          div.project-picture-container
-            div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Image Description')
-              div.project-picture-overlay
-                a.hover-link(href='http://kineticraft.brianschmoker.com') View Project
           div.project-text
-            p First Paragraph
-            p.last Last paragraph
+            p While working at my last job, I wanted a place I could experiment with new tech, share any projects I was working on, and potentially blog. After experimenting with a couple over-ambitious and under-performing designs, I created the site you see here. Some modifications have been made over time as the site is a constant work in progress.
+            p.last The website is programmed in Node.js. I use <a href="https://pugjs.org/api/getting-started.html" target="_blank">pug</a> for html templating and <a href="https://sass-lang.com/" target="_blank">Sass</a> for CSS templating. Since there is little-to-no state change in the app, I'm not using Vue.js or React. The project automatically recompiles when files are altered, and there are easy functions to publish the site to my web server. On the back-end, the web server uses <a href="http://pm2.keymetrics.io/" target="_blank">pm2</a> to run the website.
         div.project-pane
           span.internal-link#billiards
           h1.project-title-text Billiards (2015)
           div.project-picture-container
             div.hovereffect
-              img.project-picture(src='img/Billiards_med.png', alt='Billiards')
+              img.project-picture(src='img/Billiards_md.png', alt='Screenshot of the game')
               div.project-picture-overlay
-                a.hover-link(href='http://billiards.brianschmoker.com') View Project
+                a.hover-link(href='http://billiards.brianschmoker.com', target="_blank") View Project
           div.project-text
-            p One of the first programming environments I ever used was called <a href="https://processing.org/">Processing</a>. It added a graphics library to Java and simplified the animation loop a bit. Using Processing, I got really into simulating physics and billiards seemed like a cool way to put that into practice. I also have a cool box program build with a physics framework called <a href="http://box2d.org/">Box2D</a>. I'll put it up on here if I find it.
+            p One of the first programming environments I ever used was called <a href="https://processing.org/" target="_blank">Processing</a>. It added a graphics library to Java and simplified the animation loop a bit. Using Processing, I got really into simulating physics and billiards seemed like a cool way to put that into practice. I also have a cool box program build with a physics framework called <a href="http://box2d.org/" target="_blank">Box2D</a>. I'll put it up on here if I find it.
             p No physics library was used for this because I wanted to experiment with the basics of physics simulation. The result is pretty realistic, although the ball collisions don't work very well at high speeds. Also, ball rotation is partially broken, but I'm glad I got it working at all.
             p.last This was originally programmed in Java, but Processing has a port tool that allowed me to convert the program into Javascirpt (Processing.js) and host it on the web.
         div.project-pane
           span.internal-link#android-rc-car
           h1.project-title-text Android RC Car (2014)
-          div.project-picture-container
-            div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Image Description')
-              div.project-picture-overlay
-                a.hover-link(href='http://kineticraft.brianschmoker.com') View Project
+          img.project-picture(src='img/android_rc_car.png', alt='3D schematic of the project')
           div.project-text
-            p First Paragraph
-            p.last Last paragraph
+            p In my senior year of high school we had a class called Senior Design. Each student had to create an engineering project. For my project, I made an Android controlled RC car. My vision was to have the accelerometers in a mobile phone sending Bluetooth signals to an RC car. When you tilted the phone forward or backward, the car would move forward or backward. When you tilted left or right, the car would turn.
+            p.last We used an Arduino microcontroller to receive Bluetooth from a phone and control the car. I programmed a basic Android app and was able to use some sliders to control the car, but I didn't have enough time to implement accelerometer control.
         div.project-pane
           span.internal-link#hackathon-game
           h1.project-title-text Hackathon Educational Game (2013)
-          div.project-picture-container
-            div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Image Description')
-              div.project-picture-overlay
-                a.hover-link(href='http://kineticraft.brianschmoker.com') View Project
+          img.project-picture(src='img/Hackathon_game_level.png', alt='One of the levels in the game')
           div.project-text
-            p First Paragraph
-            p.last Last paragraph
+            p.last This project won my team and I first place ($1000 prize) at a student Hackathon in 2013. The goal was to design an app/website/etc that would benefit the local community. After some brainstorming, we decided to make an educational game. We used <a href="https://processing.org/" target="_blank">Processing</a> to code the game because we all had experience with it. One of the students created the game engine, I programmed the animation, and our teammates helped create the levels and graphics.
         div.project-pane.last
           span.internal-link#kineticraft
           h1.project-title-text Kineticraft.net (2013)
           div.project-picture-container
             div.hovereffect
-              img.project-picture(src='img/Kineticraft_Home_med.png', alt='Kineticraft Home Page')
+              img.project-picture(src='img/Kineticraft_Home_md.png', alt='Kineticraft Home Page')
               div.project-picture-overlay
-                a.hover-link(href='http://kineticraft.brianschmoker.com') View Project
+                a.hover-link(href='http://kineticraft.brianschmoker.com', target="_blank") View Project
           div.project-text
             p I used to run a vanilla Minecraft server with a few friends. When we realized we needed a website to garner more attention, I took it upon myself to create one. I could have just used some Wordpress template, but I had a specific idea of how I wanted it to look that only custom code could create.
             p This website was the result. It was the first website I ever built and was hand coded in html, css, and php. I'm proud of the design, although my color selection could have been a bit better. The code isn't very pretty, but it get's the job done.
-            p The server is still running today. I gave the domain away to a few dedicated staff. They have since updated the website to a <a href="https://github.com/flarum/flarum">Flarum</a> template. If you play Minecraft, pay them a visit. Tell them ThunderBird21 sent you.
+            p The server is still running today. I gave the domain away to a few dedicated staff. They have since updated the website to a <a href="https://github.com/flarum/flarum" target="_blank">Flarum</a> template. If you play Minecraft, pay them a visit. Tell them ThunderBird21 sent you.
     +footer
