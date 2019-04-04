@@ -11,5 +11,12 @@ body
   +menu()
   div#container
     div#main
-      canvas#canvas(width=900, height=600)
+      div#content
+        p Welcome to the playground. This is a little 2D platformer I put together a while back when I was bored. It's still a bit rough around the edges and could use some polishing. If you enjoy this, be sure to check out <a href="https://billiards.brianschmoker.com" target="_blank">billiards</a>.
+        canvas#canvas(width=900, height=600)
+        h2 Instructions
+        ul
+          li #[b Jump]: Space/Up
+          li #[b Move]: Arrow keys
+          li #[b Place Block]: Mouse click
     +footer
