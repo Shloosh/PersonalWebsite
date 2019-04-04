@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
 // })
 
 app.use('/', express.static('src/', {
-  index: 'projects.html', //index: 'thoughts.html',
+  index: 'about.html', //index: 'thoughts.html',
   extensions: ['html', 'htm']
 }))
 
