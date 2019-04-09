@@ -5,7 +5,7 @@ head
   +header("Projects")
   link(rel='stylesheet', type='text/css', href='css/app.css?version=1')
   link(rel='stylesheet', type='text/css', href='css/content-page.css?version=1')
-  link(rel='stylesheet', type='text/css', href='css/projects.css?version=3')
+  link(rel='stylesheet', type='text/css', href='css/projects.css?version=4')
 body
   +menu("Projects")
   div#container
@@ -21,6 +21,8 @@ body
             a.toc-item(href='#android-rc-car') Android RC Car (2014)
             a.toc-item(href='#hackathon-game') Hackathon Educational Game (2013)
             a.toc-item(href='#kineticraft') Kineticraft.net (2013)
+        div#intro
+          p If you are a potential employer or collaborator, please contact me by email for code samples.
         div.project-pane
           span.internal-link#deep-crypto-trader
           h1.project-title-text Deep Cryptocurrency Trader (2018)
@@ -53,6 +55,7 @@ body
           span.internal-link#this-website
           h1.project-title-text This Website (2017)
           div.project-text
+            p View the code for this website over on <a href="https://github.com/Shloosh/PersonalWebsite" target="_blank">github</a>.
             p While working at my last job, I wanted a place I could experiment with new tech, share any projects I was working on, and potentially blog. After experimenting with a couple over-ambitious and under-performing designs, I created the site you see here. Some modifications have been made over time as the site is a constant work in progress.
             p.last The website is programmed in Node.js. I use <a href="https://pugjs.org/api/getting-started.html" target="_blank">pug</a> for html templating and <a href="https://sass-lang.com/" target="_blank">Sass</a> for CSS templating. Since there is little-to-no state change in the app, I'm not using Vue.js or React. The project automatically recompiles when files are altered, and there are easy functions to publish the site to my web server. On the back-end, the web server uses <a href="http://pm2.keymetrics.io/" target="_blank">pm2</a> to run the website.
         div.project-pane
