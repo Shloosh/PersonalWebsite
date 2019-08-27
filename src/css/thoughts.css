@@ -2,3 +2,7 @@
   display: inline-block;
   margin-top: 2em;
   margin-bottom: 3em; }
+  .blog .details {
+    margin-bottom: 1em; }
+  .blog h2 {
+    margin: 0; }
