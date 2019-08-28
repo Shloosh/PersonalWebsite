@@ -6,3 +6,6 @@
     margin-bottom: 1em; }
   .blog h2 {
     margin: 0; }
+  .blog li {
+    list-style-type: unset;
+    font-size: 1.25em; }
