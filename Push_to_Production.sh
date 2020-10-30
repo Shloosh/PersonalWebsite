@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
+localDir="/home/shloosh/Desktop/PersonalWebsite"
+localBackup="/tmp/website_backup.tar.gz"
 serverUser="ubuntu"
 serverHost="138.68.241.190"
 serverPEM="/home/shloosh/Desktop/Programming/Server Connection Files/DigitalOcean.pem"
-localDir="/home/shloosh/Desktop/PersonalWebsite"
 serverDir="/var/www/brianschmoker.com"
 # For whatever reason, some profile info isn't loading for remote ssh and pm2 is not in the path variable
 pm2="/home/ubuntu/.nvm/versions/node/v8.9.3/bin/pm2"
@@ -13,9 +14,9 @@ ssh -i "$serverPEM" $serverUser@$serverHost "$pm2 stop brianschmoker.com"
 echo "Removing website files on remote server"
 ssh -i "$serverPEM" $serverUser@$serverHost "rm -rf $serverDir/*"
 echo "Backing up website"
-tar czf /tmp/website_backup.tar.gz --directory="$localDir" --exclude=".git" --exclude="Push_to_Production.sh" .
+tar czf "$localBackup" --directory="$localDir" --exclude=".git" --exclude="Push_to_Production.sh" --exclude="Windows_Push_to_Production.ps1" .
 echo "Sending compressed website files"
-scp -ri "$serverPEM" /tmp/website_backup.tar.gz $serverUser@$serverHost:$serverDir/
+scp -ri "$serverPEM" "$localBackup" $serverUser@$serverHost:$serverDir/
 echo "Uncompressing files"
 ssh -i "$serverPEM" $serverUser@$serverHost "tar -xzf $serverDir/website_backup.tar.gz -C $serverDir"
 echo "Removing compressed backup from remote server"
