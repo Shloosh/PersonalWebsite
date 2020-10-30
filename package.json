@@ -21,7 +21,7 @@
   "homepage": "https://github.com/Shloosh/PersonalWebsite#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.1",
     "pug-cli": "^1.0.0-alpha6",
     "serve-favicon": "^2.5.0"
